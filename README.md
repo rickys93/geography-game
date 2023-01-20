@@ -17,8 +17,8 @@
 ### Country Quiz
 - Random country
 - Questions:
-- - North/South Hemisphere
-- - Continent
-- - Capital City
-- - Population
-- - Language
+ - North/South Hemisphere
+ - Continent
+ - Capital City
+ - Population
+ - Language
