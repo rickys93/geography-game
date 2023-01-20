@@ -66,9 +66,6 @@
     align-items: center;
 }
 
-.nav-left * {
-}
-
 .mini-profile {
     height: 60px;
     width: 250px;
@@ -80,9 +77,51 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .profile-pic {
     height: 40px;
+}
+
+.main-section {
+    width: 100%;
+}
+
+.welcome-section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.col1 {
+    padding: 0 15px 15px 0;
+    height: 300px;
+}
+
+.col2 {
+    padding: 0 0 15px 15px;
+    height: 300px;
+}
+
+.main-section {
+    padding: 30px;
+    width: auto;
+}
+
+.box {
+    background-color: #9fb6e2;
+    opacity: 0.8;
+    width: auto;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.game-section {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.game-box {
+    height: 280px;
+    padding: 15px 0 15px 0;
 }
