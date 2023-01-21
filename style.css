@@ -12,7 +12,7 @@
 }
 
 .background-image {
-    height: 100vh;
+    height: 100%;
     background-image: url("./images/world-map.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -34,6 +34,12 @@
     font-size: 23px;
     font-weight: 600;
 }
+
+/* @media only screen and (max-width: 900px) {
+     {
+        color: black;
+    }
+} */
 
 .logo {
     text-decoration: none;
@@ -98,8 +104,15 @@
     height: 40px;
 }
 
+.main-section-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .main-section {
     width: 100%;
+    max-width: 1000px;
 }
 
 .welcome-section {
@@ -114,6 +127,51 @@
     flex: 1 1 300px;
 }
 
+.welcome-box {
+    display: grid;
+    grid-template-rows: 20% 30% 50%;
+}
+
+.grid-2-container {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 100%;
+}
+
+.name-entry-container {
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.name-entry {
+    height: 50px;
+    width: 100%;
+    color: black;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.submit-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-submit-button {
+    padding: 25px;
+    border-radius: 20px;
+}
+
 .col2 {
     padding: 0 0 15px 15px;
     height: 300px;
@@ -123,7 +181,7 @@
 
 .fun-fact-box {
     display: grid;
-    grid-template-rows: 25% 40% 35%;
+    grid-template-rows: 20% 45% 35%;
 }
 
 .fun-fact-title {
@@ -136,23 +194,24 @@
 .fun-fact-title h2 {
     position: absolute;
     bottom: 0;
-    font-size: 50px;
+    font-size: 30px;
     color: var(--pink-dark);
     font-weight: 800;
 }
 
 .fun-fact-text {
     font-size: 20px;
-    padding: 20px;
+    padding: 15px 20px 0px 20px;
     font-weight: 600;
 }
-.randomise-button-container {
+
+.small-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.randomise-button {
+.small-button {
     padding: 15px;
     border-radius: 20px;
     text-decoration: none;
@@ -178,7 +237,7 @@
 
 .box {
     background-color: #9fb6e2;
-    opacity: 0.9;
+    opacity: 0.95;
     width: auto;
     height: 100%;
     border-radius: 30px;
