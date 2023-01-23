@@ -6,12 +6,13 @@ async function displayFlag() {
     
     const response = await fetch(url_base + "flag-facts/random")
     const flag = await response.json()
-
-     //console.log(flag["flagFile"])
   
     const flagImage = document.querySelector("#flag-image");
     
+    const flagFact = document.querySelector("#facts");
+
     flagImage.src = flag["flagFile"];
+    flagFact.textContent = flag["interestingFact"];
 
     //assign country of flag to correct answer to be used with guess button + form
     const correctAnswer = flag["countryName"];
