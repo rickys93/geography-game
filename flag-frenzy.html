@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./flag-frenzy.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Frenzy</title>
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="background-image">
+        <nav class="navigation-bar border">
+            <div class="nav-left">
+                <a class="logo" href="">GeoGenius<span>.</span></a>
+                <a class="page-links" href="">Flag Frenzy</a>
+                <a class="page-links" href="">Country Quiz</a>
+            </div>
+            <div class="nav-right">
+                <div class="mini-profile">
+                    <div>Name: Paul</div>
+                    <div>Points: 100</div>
+                </div>
+            </div>
+        </nav>
+        <section id="main-section">
+            <h1>What flag is this?</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japanese flag" id="flag-image">
+            <!-- <div id="container">
+                <h3 id="text"></h3>
+                <em id="author"></em>
+            </div> -->
+            <button id="button">NEW FLAG</button>
+            <br>
+            <form id="form">
+                <input id="flag-guess" type="text" name="text" placeholder="Type your answer here...">
+                <input id="guess-button" type="submit" value="Guess"> 
+            </form>
+            <br>
+            <section id="inner-section">
+                <h4 id="correct"></h4>
+                <p id="facts">Facts about the country will appear when you guess correctly</p>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
