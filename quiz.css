@@ -1,0 +1,85 @@
+:root {
+    --pink: #e869cc;
+    --light-blue: #9fb6e2;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* .border {
+    border: solid 1px black;
+} */
+
+.title {
+    font-size: 64px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.countrycard {
+    height: 102px;
+    background: #d9d9d9;
+    width: 563px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.countrytext {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: black;
+    margin-left: 10px;
+}
+
+.qbox {
+    width: 681px;
+    height: 81px;
+    background: rgba(159, 182, 226, 0.9);
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-top: 1.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.abox {
+    width: 483px;
+    height: 56px;
+    background: #d9d9d9;
+    opacity: 0.9;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qtext {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    color: white;
+    margin-left: 10px;
+}
+
+.atext {
+    font-size: 24px;
+    margin-left: px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    background: #d9d9d9;
+    color: black;
+    width: 483px;
+    height: 56px;
+}
+
+.submit {
+    margin-left: auto;
+    margin-right: auto;
+}

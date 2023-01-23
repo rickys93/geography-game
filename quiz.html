@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="./flag-frenzy.css" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GeoGenius</title>
+        <link rel="stylesheet" href="./quiz.css" />
+        <link rel="stylesheet" href="./main-style.css" />
         <link
             rel="stylesheet"
             type="text/css"
             href="//fonts.googleapis.com/css?family=Jura"
         />
-        <link rel="stylesheet" href="./main-style.css" />
-
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Flag Frenzy</title>
-        <script defer src="index.js"></script>
     </head>
     <body>
         <div class="background-image">
@@ -87,51 +85,72 @@
                     </div>
                 </div>
             </nav>
-            <section id="main-section">
-                <div class="main-section">
-                    <div class="flag-frenzy-section">
-                        <h1>What flag is this?</h1>
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"
-                            alt="Japanese flag"
-                            id="flag-image"
-                        />
-                        <!-- <div id="container">
-                        <h3 id="text"></h3>
-                        <em id="author"></em>
-                    </div> -->
-                        <button
-                            class="button-colours small-button button-border"
-                            id="button"
-                        >
-                            NEW FLAG
-                        </button>
-                        <br />
-                        <form id="form">
-                            <input
-                                id="flag-guess"
-                                type="text"
-                                name="text"
-                                placeholder="Type your answer here..."
-                            />
-                            <input
-                                class="button-colours small-button button-border"
-                                id="guess-button"
-                                type="submit"
-                                value="Guess"
-                            />
-                        </form>
-                        <br />
-                        <section id="inner-section">
-                            <h4 id="correct"></h4>
-                            <p id="facts">
-                                Facts about the country will appear when you
-                                guess correctly
-                            </p>
-                        </section>
-                    </div>
+            <section class="title">
+                Country Quiz
+                <div class="countrycard">
+                    <p class="countrytext">
+                        Country:<br /><!-- Country name variable here -->
+                    </p>
                 </div>
             </section>
+            <div class="qbox">
+                <p class="qtext">Question 1:<!-- question variable? --></p>
+            </div>
+            <div class="abox">
+                <form action="">
+                    <select name="q1" id="" class="atext">
+                        <option value="a1">a1</option>
+                        <option value="a2">a2</option>
+                        <option value="a3">a3</option>
+                        <option value="a4">a4</option>
+                    </select>
+                </form>
+            </div>
+            <div class="qbox"><p class="qtext">Question 2:</p></div>
+            <div class="abox">
+                <form action="">
+                    <select name="q1" id="" class="atext">
+                        <option value="a1">a1</option>
+                        <option value="a2">a2</option>
+                        <option value="a3">a3</option>
+                        <option value="a4">a4</option>
+                    </select>
+                </form>
+            </div>
+            <div class="qbox"><p class="qtext">Question 3:</p></div>
+            <div class="abox">
+                <form action="">
+                    <select name="q1" id="" class="atext">
+                        <option value="a1">a1</option>
+                        <option value="a2">a2</option>
+                        <option value="a3">a3</option>
+                        <option value="a4">a4</option>
+                    </select>
+                </form>
+            </div>
+            <div class="qbox"><p class="qtext">Question 4:</p></div>
+            <div class="abox">
+                <form action="">
+                    <select name="q1" id="" class="atext">
+                        <option value="a1">a1</option>
+                        <option value="a2">a2</option>
+                        <option value="a3">a3</option>
+                        <option value="a4">a4</option>
+                    </select>
+                </form>
+            </div>
+            <div class="qbox"><p class="qtext">Question 5:</p></div>
+            <div class="abox">
+                <form action="">
+                    <select name="q1" id="" class="atext">
+                        <option value="a1">a1</option>
+                        <option value="a2">a2</option>
+                        <option value="a3">a3</option>
+                        <option value="a4">a4</option>
+                    </select>
+                </form>
+            </div>
+            <input type="submit" class="submit" />
         </div>
     </body>
 </html>

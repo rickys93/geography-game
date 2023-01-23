@@ -1,161 +1,91 @@
-
 :root {
     --pink: #e869cc;
     --light-blue: #9fb6e2;
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+body {
+    /* font-family: 'Jura'; */
+    padding: 0rem;
 }
 
-.background-image {
-    height: 100vh;
-    background-image: url("./images/world-map.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.navigation-bar {
+#main-section {
     width: 100%;
-    height: 80px;
-    background-color: var(--light-blue);
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    color: white;
-    font-size: 25px;
+    justify-content: center;
 }
 
-.logo {
-    text-decoration: none;
-    color: white;
-    font-size: 45px;
-    font-weight: 800;
-    margin: 0px 15px;
+.main-section {
+    width: 100%;
+    max-width: 600px;
 }
-
-.logo span {
-    color: var(--pink);
-}
-
-.page-links {
-    text-decoration: none;
-    background-color: var(--pink);
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 10px;
-    width: 150px;
-    text-align: center;
-}
-
-.page-links:hover {
-    background-color: white;
-    color: var(--pink);
-}
-
-.nav-left,
-.nav-right {
+.flag-frenzy-section {
     display: flex;
-    align-items: center;
-}
+    flex-direction: column;
 
-/* .nav-left * {
-} */
+    padding: 100px;
 
-.mini-profile {
-    height: 60px;
-    width: 250px;
-    background-color: var(--pink);
-    margin: 15px;
-    margin-right: 15px;
-    border-radius: 20px;
+    background-color: rgba(159, 182, 226, 0.8);
+    border-radius: 2rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    height: 550px;
+    margin: 50px 0px 50px 0px;
 }
-
-.profile-pic {
-    height: 40px;
-}
-
-
-body {
-    background-size: cover;
-    background-color: darkblue;
-    /* font-family: 'Jura'; */
-    padding: 0rem;
-  }
-  
-  #main-section {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+/* #main-section {
     width: 40%;
     min-height: 80%;
     transform: translate(-50%, -45%);
-  
-    padding: 1rem;
-  
-    background-color: rgba(159, 182, 226, 0.8);
-    border-radius: 2rem;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+} */
 
-  #inner-section {
+#inner-section {
     background-color: white;
-  }
-  
-  /* .container {
+}
+
+/* .container {
     flex-grow: 1;
     padding: 1rem;
 
   } */
-  
-  section > h1, section > button {
+
+section > h1,
+section > button {
     flex-shrink: 0;
     height: 3rem;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 3rem;
     margin-top: -100px;
     margin-bottom: 25px;
     color: white;
-  }
-  
-  h3, em {
+}
+
+h3,
+em {
     font-size: 1.5rem;
-  }
-  
-  button {
+}
+
+button {
     font-size: 2rem;
-    border: 1px solid black;
-    border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
     padding: 10px 15px;
     line-height: 20px;
-  }
+}
 
-  #flag-image {
-    width: 350px; 
-  }
+#flag-image {
+    width: 350px;
+}
 
-  #flag-guess, #guess-button {
+#flag-guess,
+#guess-button {
     padding: 10px;
-    font-family: 'Jura';
-  }
+    font-family: "Jura";
+}
 
-  #guess-button{
+#guess-button {
     cursor: pointer;
-  }
+}
