@@ -16,6 +16,7 @@
             type="text/css"
             href="//fonts.googleapis.com/css?family=Jura"
         />
+        <script defer src="./profile.js"></script>
     </head>
     <body>
         <div class="background-image">
@@ -40,12 +41,12 @@
                     <div class="mini-profile">
                         <div class="profile-container">
                             <div class="mini-profile-label">Name:</div>
-                            <div class="user-name">Paul</div>
+                            <div class="user-name"></div>
                         </div>
                         <div class="user-rank">Geo Genius!</div>
                         <div class="profile-container">
                             <div class="mini-profile-label">Points:</div>
-                            <div class="user-name">100</div>
+                            <div class="user-points"></div>
                         </div>
                         <div class="user-stars">🌟🌟🌟</div>
                     </div>
@@ -78,12 +79,12 @@
                     <div class="mini-profile">
                         <div class="profile-container">
                             <div class="mini-profile-label">Name:</div>
-                            <div class="user-name">Paul</div>
+                            <div class="user-name"></div>
                         </div>
                         <div class="user-rank">Geo Genius!</div>
                         <div class="profile-container">
                             <div class="mini-profile-label">Points:</div>
-                            <div class="user-name">100</div>
+                            <div class="user-points"></div>
                         </div>
                         <div class="user-stars">🌟🌟🌟</div>
                     </div>
@@ -98,27 +99,27 @@
                                     <h2>Welcome to Geo Genius!</h2>
                                 </div>
                                 <div class="grid-2-container">
-                                    <div class="grid-2">
+                                    <form class="grid-2" id="submit-name-form">
                                         <div class="name-entry-container">
-                                            <div>Submit name to begin...</div>
-                                            <form>
-                                                <input
-                                                    class="name-entry"
-                                                    type="text"
-                                                    name=""
-                                                    id=""
-                                                />
-                                            </form>
+                                            <label for="user-name-input"
+                                                >Submit name to begin...</label
+                                            >
+                                            <input
+                                                class="name-entry"
+                                                type="text"
+                                                name=""
+                                                id="userNameInput"
+                                            />
                                         </div>
                                         <div class="submit-button-div">
                                             <input
                                                 class="button-colours small-button button-border"
                                                 type="submit"
                                                 value="Submit"
+                                                id="name-entry-submit"
                                             />
                                         </div>
-                                        <div></div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="grid-3">
                                     <div class="user-profile">
@@ -127,9 +128,7 @@
                                                 <div class="mini-profile-label">
                                                     Name:
                                                 </div>
-                                                <div class="user-name">
-                                                    Paul
-                                                </div>
+                                                <div class="user-name"></div>
                                             </div>
                                             <div class="user-rank">
                                                 Geo Genius!
@@ -138,7 +137,7 @@
                                                 <div class="mini-profile-label">
                                                     Points:
                                                 </div>
-                                                <div class="user-name">100</div>
+                                                <div class="user-points"></div>
                                             </div>
                                             <div class="user-stars">🌟🌟🌟</div>
                                         </div>
