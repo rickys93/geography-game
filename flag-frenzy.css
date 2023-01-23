@@ -40,9 +40,10 @@ body {
     transform: translate(-50%, -45%);
 } */
 
-#inner-section {
+/* #inner-section {
     background-color: white;
-}
+    border-radius: 20px;
+} */
 
 /* .container {
     flex-grow: 1;
@@ -58,16 +59,11 @@ section > button {
 
 h1 {
     font-size: 3rem;
-    margin-top: -100px;
+    margin-top: -50px;
     margin-bottom: 25px;
     margin-right: -30px;
     margin-left: -30px;
     color: white;
-}
-
-h3,
-em {
-    font-size: 1.5rem;
 }
 
 button {
@@ -85,9 +81,17 @@ button {
 #flag-guess,
 #guess-button {
     padding: 10px;
-    font-family: "Jura";
+    margin-bottom: 40px;
+    /* font-family: "Jura"; */
 }
 
 #guess-button {
     cursor: pointer;
+}
+
+p{
+    /* padding: 0px 10px -30px 10px; */
+    color: white;
+    font-size: 2rem;
+    text-align: center;
 }
