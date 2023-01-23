@@ -6,7 +6,13 @@
 3. Country Quiz
 
 ### Welcome Page
-
+- Enter and submit name
+- Player Card
+- Link to Flag Game
+- Description of game
+- Link to Country Quiz
+- Description of game
+- Fun fact at the bottom
 
 ### Flag Game
 - Show random flag
