@@ -1,24 +1,18 @@
-const url_base = "http://localhost:3000/";
+const url_base = "https://geo-genius-server.onrender.com/";
 
 const submitNameButton = document.getElementById("submit-name-form");
 
 async function submitName(e) {
     e.preventDefault();
 
-    const name = e.target.userNameInput.value;
+    let name = e.target.userNameInput.value;
     if (!name) {
         return;
     }
 
-    let userProfile = await getUserProfile();
+    name = name.charAt(0).toUpperCase() + name.slice(1);
 
-    if (userProfile.name) {
-        console.log("Name already added to DB");
-        alert(
-            "You have already entered a name. Please refresh page to enter new one."
-        );
-        return;
-    }
+    let userProfile = await getUserProfile();
 
     if (!updateUserName(name)) {
         console.log("Name not changed");
@@ -26,7 +20,12 @@ async function submitName(e) {
     }
 
     updateNameHTML(name);
+    document.getElementById("userNameInput").value = "";
 
+    if (userProfile.name) {
+        alert("Name succesfully changed!");
+        return;
+    }
     alert("Name succesfully added!");
 }
 
@@ -68,4 +67,28 @@ function updateNameHTML(name) {
     }
 }
 
+const randomiseButton = document.getElementById("randomise-button");
+console.log(randomiseButton);
+
+async function newRandomFact() {
+    const randomFact = await getRandomFact();
+
+    if (randomFact) {
+        const funFact = document.getElementById("fun-fact-text");
+        funFact.textContent = randomFact.fact;
+    }
+}
+
+async function getRandomFact() {
+    const res = await fetch(url_base + "fun-facts/random");
+
+    const randomFact = await res.json();
+    if (!randomFact) {
+        return;
+    }
+
+    return await randomFact;
+}
+
 submitNameButton.addEventListener("submit", submitName);
+randomiseButton.addEventListener("click", newRandomFact);
