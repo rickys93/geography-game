@@ -2,6 +2,7 @@ const url_base = "https://geo-genius-server.onrender.com/";
 
 //this works
 const getFlagButton = document.getElementById("button");
+const submitGuess = document.getElementById("form");
 
 async function displayFlag(e) {
     
@@ -23,11 +24,24 @@ async function displayFlag(e) {
   }
 
   //started function for when guess is clicked
-//   const guess = document.getElementById("form");
+const guess = document.getElementById("form");
 
-//   async function guessAnswer(e) {
+async function guessAnswer(e) {
 
-//   }
+    e.preventDefault()
 
+    let guess = e.target.flagGuess.value;
+    // if (!guess) {
+    //     return;
+    // }
 
- getFlagButton.addEventListener("click", displayFlag);
+    guess = guess.charAt(0).toUpperCase() + guess.slice(1);
+
+    if (guess === correctAnswer) {
+        console.log("correct")
+    }
+
+}
+
+submitGuess.addEventListener("submit", guessAnswer);
+getFlagButton.addEventListener("click", displayFlag);
