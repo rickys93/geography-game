@@ -99,23 +99,28 @@
             <section id="main-section">
                 <div class="main-section">
                     <div class="flag-frenzy-section">
-                        <h1>What flag is this?</h1>
-                        <img src="" alt="A random flag" id="flag-image" />
+                        <h1 id="whatFlag"></h1>
+                        <img
+                            src="images/question.png"
+                            alt="A random flag"
+                            id="flag-image"
+                        />
 
                         <button
                             class="button-colours small-button button-border"
                             id="button"
                         >
-                            NEW FLAG
+                            Click to play
                         </button>
                         <br />
                         <form id="form">
                             <input
-                                id="flag-guess"
+                                id="flagGuess"
                                 type="text"
                                 name="text"
                                 placeholder="Type your answer here..."
                             />
+                            <input type="hidden" id="correctAnswer" />
                             <input
                                 class="button-colours small-button button-border"
                                 id="guess-button"
