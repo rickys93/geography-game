@@ -2,7 +2,6 @@ let url_base = "https://geo-genius-server.onrender.com/";
 
 //this works
 const getFlagButton = document.getElementById("button");
-// const submitGuess = document.getElementById("form");
 const guessButton = document.getElementById("form");
 const correctAnswer = document.getElementById("correctAnswer");
 const correctHeading = document.getElementById("correct");
@@ -48,6 +47,8 @@ async function guessAnswer(e) {
     } else {
         correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`;
     }
+
+    document.getElementById("flagGuess").value = "";
 }
 
 guessButton.addEventListener("submit", guessAnswer);
