@@ -32,7 +32,7 @@ body {
     align-items: center;
 
     height: 550px;
-    margin: 50px 0px 50px 0px;
+    margin: 50px 0px 50px -20px;
 }
 /* #main-section {
     width: 40%;
@@ -106,16 +106,19 @@ button {
 
 p {
     /* padding: 0px 10px -30px 10px; */
+    background-color: var(--pink);
+    border-radius: 20px;
     color: white;
-    font-size: 2rem;
+    font-size: 20px;
     text-align: center;
+    padding: 10px;
 }
 
 h4 {
     color: var(--pink);
     padding-top: -40px;
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
 }
 
