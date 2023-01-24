@@ -19,24 +19,33 @@ const gameOver = document.querySelector(".game-finished");
 const flagHint = document.querySelector("#hint");
 
 async function displayFlag() {
-    const response = await fetch(url_base + "flag-facts/random");
-    const flag = await response.json();
+    //fetch array of flag objects
+    const response = await fetch(url_base + "flag-facts"); 
+    const flags = await response.json();
 
-    const flagImage = document.querySelector("#flag-image");
+    const randomId = Math.floor(Math.random() * flags.length);
+    //fact with the random ID
+    const randomFlag = flags[randomId];
+    
+
+
+    // const flag = await response.json();
+
+     const flagImage = document.querySelector("#flag-image");
 
     whatFlagHeader.style.visibility = "visible";
 
     startResetButton.textContent = "RESET";
 
-    flagImage.src = flag["flagFile"];
-    //will appear when guessed correctly
-    funFact.textContent = `Hint: ${flag["interestingFact"]}`;
+    flagImage.src = randomFlag["flagFile"];
+     //will appear when guessed correctly
+    funFact.textContent = `Hint: ${randomFlag["interestingFact"]}`;
 
     correctHeading.textContent = "";
     flagHint.textContent = "Click to reveal a hint";
 
     //assign country of flag to correct answer to be used with guess button + form
-    correctAnswer.textContent = flag["countryName"];
+    correctAnswer.textContent = randomFlag["countryName"];
 }
 
 //function for when guess is clicked
@@ -68,7 +77,7 @@ async function guessAnswer(e) {
     document.getElementById("flagGuess").value = "";
 }
 
-async function showHint(e) {
+function showHint(e) {
     e.preventDefault();
 
     flagHint.textContent = funFact.textContent;
