@@ -37,7 +37,7 @@
                         >Country Quiz</a
                     >
                     <a class="leaderboard-link" href="./leaderboard.html"
-                        ><img class="" src=".../images/trophy.png" alt=""
+                        ><img class="" src="../images/trophy.png" alt=""
                     /></a>
                 </div>
                 <div class="nav-right">
@@ -99,13 +99,26 @@
             <section id="main-section">
                 <div class="main-section">
                     <div class="flag-frenzy-section">
-                        <h1 id="whatFlag"></h1>
-                        <img
-                            src="images/question.png"
-                            alt="A random flag"
-                            id="flag-image"
-                        />
-
+                        <h1 id="whatFlag">Flag Frenzy</h1>
+                        <div class="score-time-container">
+                            <div class="score-count">
+                                Score: <span id="flag-frenzy-score">0</span>
+                            </div>
+                            <div class="time-count" id="countdown-timer">5</div>
+                        </div>
+                        <div class="flag-image-container">
+                            <div class="game-finished">
+                                <div>GAME OVER</div>
+                                <div>
+                                    SCORE: <span id="final-score">0</span>
+                                </div>
+                            </div>
+                            <img
+                                src="images/question.png"
+                                alt="A random flag"
+                                id="flag-image"
+                            />
+                        </div>
                         <button
                             class="button-colours small-button button-border"
                             id="button"

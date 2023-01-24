@@ -30,7 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
     height: 550px;
     margin: 50px 0px 50px 0px;
 }
@@ -74,8 +74,23 @@ button {
     line-height: 20px;
 }
 
+.flag-image-container {
+    height: 200px;
+}
+
 #flag-image {
     height: 200px;
+}
+
+.game-finished {
+    height: 200px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 #flagGuess,
@@ -101,5 +116,29 @@ h4 {
     padding-top: -40px;
     padding-bottom: 20px;
     font-size: 20px;
+    text-align: center;
+}
+
+.score-time-container {
+    display: flex;
+    font-size: 20px;
+    padding: 10px 0px;
+}
+
+.score-time-container div {
+    padding: 10px 0px;
+    margin: 0px 10px;
+    border-radius: 5px;
+}
+
+.score-count {
+    background-color: white;
+    width: 100px;
+    text-align: center;
+}
+
+.time-count {
+    background-color: white;
+    width: 50px;
     text-align: center;
 }
