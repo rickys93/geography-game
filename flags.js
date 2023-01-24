@@ -46,6 +46,10 @@ async function guessAnswer(e) {
     
         if (userGuess === correctAnswer.textContent) {
              correctHeading.textContent = "CORRECT!";
+        } else if (userGuess.length === 0){
+            correctHeading.textContent = "Please enter a guess"
+        } else {
+            correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`
         }
     
     }

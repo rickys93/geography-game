@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    padding: 100px;
+    padding: 100px 70px;
 
     background-color: rgba(159, 182, 226, 0.8);
     border-radius: 2rem;
@@ -94,12 +94,14 @@ p{
     color: white;
     font-size: 2rem;
     text-align: center;
+
     
 }
 
 h4 {
     color: var(--pink);
     padding-top: -40px;
-    font-size: 4rem;
+    padding-bottom: 20px;
+    font-size: 20px;
     text-align: center;
 }
