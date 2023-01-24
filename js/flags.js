@@ -27,11 +27,7 @@ async function displayFlag() {
     //fact with the random ID
     const randomFlag = flags[randomId];
     
-
-
-    // const flag = await response.json();
-
-     const flagImage = document.querySelector("#flag-image");
+    const flagImage = document.querySelector("#flag-image");
 
     whatFlagHeader.style.visibility = "visible";
 
