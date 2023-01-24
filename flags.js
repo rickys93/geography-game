@@ -6,6 +6,7 @@ const getFlagButton = document.getElementById("button");
 const guessButton = document.getElementById("form");
 const correctAnswer = document.getElementById("correctAnswer");
 const correctHeading = document.getElementById("correct");
+const whatFlagHeader = document.getElementById("whatFlag");
 
 async function displayFlag(e) {
     
@@ -16,6 +17,10 @@ async function displayFlag(e) {
     const flagImage = document.querySelector("#flag-image");
     
     const flagFact = document.querySelector("#facts");
+
+    whatFlagHeader.textContent = "What flag is this?";
+
+    getFlagButton.textContent = "NEW FLAG"
 
     flagImage.src = flag["flagFile"];
     //make this a hint or change the fact to not include country name or appear when guessed correctly

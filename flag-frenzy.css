@@ -59,7 +59,7 @@ section > button {
 
 h1 {
     font-size: 3rem;
-    margin-top: -50px;
+    margin-top: -70px;
     margin-bottom: 25px;
     margin-right: -30px;
     margin-left: -30px;
@@ -75,13 +75,13 @@ button {
 }
 
 #flag-image {
-    width: 350px;
+    height: 200px;
 }
 
-#flag-guess,
+#flagGuess,
 #guess-button {
     padding: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 7px;
     /* font-family: "Jura"; */
 }
 
@@ -93,5 +93,13 @@ p{
     /* padding: 0px 10px -30px 10px; */
     color: white;
     font-size: 2rem;
+    text-align: center;
+    
+}
+
+h4 {
+    color: var(--pink);
+    padding-top: -40px;
+    font-size: 4rem;
     text-align: center;
 }
