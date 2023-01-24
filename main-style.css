@@ -30,7 +30,7 @@
     justify-content: space-between;
     align-content: center;
     color: white;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -50,7 +50,12 @@
     width: 25px;
 }
 
-@media only screen and (max-width: 900px) {
+.leaderboard-link img {
+    width: 50px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 1020px) {
     .navigation-bar-small {
         display: flex;
     }
@@ -84,7 +89,7 @@
     padding: 10px;
     border-radius: 20px;
     margin: 0 10px;
-    width: 140px;
+    width: 120px;
     text-align: center;
     /* border: solid white 5px; */
     text-decoration: none;
@@ -259,4 +264,15 @@
 
 #button:hover {
     border: solid var(--pink) 5px;
+}
+
+.main-section-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-section {
+    width: 100%;
+    max-width: 1000px;
 }

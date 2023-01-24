@@ -278,6 +278,12 @@
     }
 }
 
+@media only screen and (min-width: 1000px) {
+    .game-title h2 {
+        font-size: 60px;
+    }
+}
+
 .play-button:hover {
     border: solid var(--pink) 5px;
 }
