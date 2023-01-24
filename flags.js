@@ -28,9 +28,9 @@ const guess = document.getElementById("form");
 
 async function guessAnswer(e) {
 
-    e.preventDefault()
+    e.preventDefault();
 
-    let guess = e.target.flagGuess.value;
+    let guess = e.target.flag-guess.value;
     // if (!guess) {
     //     return;
     // }
