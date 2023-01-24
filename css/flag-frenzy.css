@@ -76,6 +76,7 @@ button {
 
 .flag-image-container {
     height: 200px;
+    margin: 20px 0px;
 }
 
 #flag-image {
@@ -98,6 +99,12 @@ button {
     padding: 10px;
     margin-bottom: 7px;
     /* font-family: "Jura"; */
+}
+
+#flagGuess {
+    border-radius: 10px;
+    height: 30px;
+    font-size: 20px;
 }
 
 #guess-button {

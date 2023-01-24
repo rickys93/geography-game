@@ -1,4 +1,4 @@
-let url_base = "https://geo-genius-server.onrender.com/";
+let url_base = "http://localhost:3000/";
 
 //this works
 const startResetButton = document.getElementById("button");
@@ -98,6 +98,7 @@ function resetGame(e) {
     timer.textContent = 60;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
+    flagImage.height = "100%";
     gameOver.style.display = "none";
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
@@ -120,6 +121,7 @@ function gameFinished() {
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
     document.getElementById("final-score").textContent = score.textContent;
+    addScoreToLeaderboard(score.textContent);
 }
 
 function endGame() {
@@ -130,6 +132,30 @@ function endGame() {
 
 function emptyFunction(e) {
     e.preventDefault();
+}
+
+async function addScoreToLeaderboard(score) {
+    let name = document.getElementsByClassName("user-name")[0].textContent;
+
+    let entry = {
+        name,
+        score,
+    };
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    console.log(options);
+    const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
+    const data = await res.json();
+
+    if (data.entryAdded) {
+        // congratulate made it on leaderboard
+    }
 }
 
 startResetButton.addEventListener("click", gameStart);

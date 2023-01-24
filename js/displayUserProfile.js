@@ -3,7 +3,6 @@ url_base = "http://localhost:3000/";
 async function displayUserProfile() {
     // get current userProfile data
     let userProfile = await getUserProfile();
-    console.log(userProfile);
     updateNameHTML(userProfile);
 }
 
