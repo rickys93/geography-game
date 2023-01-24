@@ -18,13 +18,17 @@ async function submitName(e) {
     // get current userProfile data
     let userProfile = await getUserProfile();
 
-    if (!updateUserName(name)) {
+    let user = {};
+    user.name = name;
+    user.points = 0;
+
+    if (!updateNewUser(user)) {
         // error updating the same for same reason
         console.log("Name not changed");
         return;
     }
 
-    updateNameHTML(name);
+    updateNameHTML(user);
     document.getElementById("userNameInput").value = "";
 
     if (userProfile.name) {
@@ -34,6 +38,7 @@ async function submitName(e) {
     }
     // name added to database
     alert("Name successfully added!");
+    displayUserProfile();
 }
 
 async function displayUserProfile() {
@@ -44,10 +49,10 @@ async function displayUserProfile() {
 }
 
 // call the PUT user endpoint to edit the userProfile data
-async function updateUserName(name) {
+async function updateNewUser(user) {
     const options = {
         method: "PUT",
-        body: JSON.stringify({ name }),
+        body: JSON.stringify(user),
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
