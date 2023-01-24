@@ -16,7 +16,8 @@
             type="text/css"
             href="//fonts.googleapis.com/css?family=Jura"
         />
-        <script defer src="./profile.js"></script>
+        <script defer src="./leaderboard.js"></script>
+        <script defer src="./displayUserProfile.js"></script>
     </head>
     <body>
         <div class="background-image">
@@ -28,6 +29,8 @@
                             >G</span
                         >enius<span class="pink-text">.</span></a
                     >
+                </div>
+                <div class="nav-left">
                     <a
                         class="page-links button-colours"
                         href="./flag-frenzy.html"
@@ -101,7 +104,7 @@
                     <div class="leaderboard">
                         <h1>Leaderboard</h1>
                         <h2>Flag Frenzy</h2>
-                        <table class="leaderboard-table">
+                        <table class="leaderboard-table" id="flagfrenzy">
                             <thead>
                                 <tr>
                                     <th>Rank</th>
@@ -111,59 +114,54 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                             </tbody>
                         </table>
                         <h2>Country Quiz</h2>
-                        <table class="leaderboard-table">
+                        <table class="leaderboard-table" id="countryquiz">
                             <thead>
                                 <tr>
                                     <th>Rank</th>
@@ -173,54 +171,49 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="rank-cell"></td>
+                                    <td class="name-cell"></td>
+                                    <td class="points-cell"></td>
                                 </tr>
                             </tbody>
                         </table>
