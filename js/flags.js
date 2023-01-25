@@ -19,14 +19,23 @@ const gameOver = document.querySelector(".game-finished");
 const flagHint = document.querySelector("#hint");
 
 
-async function displayFlag() {
-    
+
+async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
+    return flags
+}
+
+console.log(getFlags())
+
+ function displayFlag() {
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
+
+    flags.splice(flags.indexOf(flags[randomId]), 1);
+    console.log(flags)
 
     const flagImage = document.querySelector("#flag-image");
 
@@ -100,11 +109,13 @@ function startCountdownTimer() {
     }, 1000);
 }
 
-function gameStart(e) {
+async function gameStart(e) {
     // if (!checkNameAdded()) {
     //     alert("Please make sure name entered on home page.");
     //     return;
     // }
+    flags = await getFlags()
+    //console.log(flags)
 
     if (!displayFlag()) {
         alert("Error while loading flags. Please try again later.");
