@@ -25,7 +25,7 @@ async function getFlags() {
     return flags
 }
 getFlags()
-flags = getFlags()
+// flags = getFlags()
 
 function displayFlag() {
 
