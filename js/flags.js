@@ -17,8 +17,9 @@ const timer = document.getElementById("countdown-timer");
 const flagImage = document.querySelector("#flag-image");
 const gameOver = document.querySelector(".game-finished");
 const flagHint = document.querySelector("#hint");
-
-
+flagHint.style.display = "none";
+const skipButton = document.querySelector("#skip");
+skipButton.style.display = "none";
 
 async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
@@ -40,6 +41,8 @@ console.log(getFlags())
     const flagImage = document.querySelector("#flag-image");
 
     whatFlagHeader.style.visibility = "visible";
+    skipButton.style.display = "inline";
+    flagHint.style.display = "block";
 
     startResetButton.textContent = "RESET";
 
@@ -93,6 +96,13 @@ function showHint(e) {
 
 flagHint.addEventListener("click", showHint);
 
+function skipFlag(e) {
+    e.preventDefault();
+
+    displayFlag()
+}
+
+
 let intervalId;
 
 function startCountdownTimer() {
@@ -140,6 +150,8 @@ function resetGame(e) {
     guessButton.addEventListener("submit", emptyFunction);
     startResetButton.addEventListener("click", gameStart);
     startResetButton.textContent = "Click to play";
+    skipButton.style.display = "none";
+    flagHint.style.display = "none";
 }
 
 function gameFinished() {
@@ -218,3 +230,4 @@ async function addScoreToProfile(score) {
 
 startResetButton.addEventListener("click", gameStart);
 guessButton.addEventListener("submit", emptyFunction);
+skipButton.addEventListener("click", skipFlag);
