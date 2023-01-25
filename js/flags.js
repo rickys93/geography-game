@@ -18,18 +18,11 @@ const flagImage = document.querySelector("#flag-image");
 const gameOver = document.querySelector(".game-finished");
 const flagHint = document.querySelector("#hint");
 
-async function getFlags() {
-    //fetch array of flag objects
+
+async function displayFlag() {
+    
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
-    return flags
-}
-getFlags()
-flags = getFlags()
-console.log(flags)
-
-function displayFlag(flags) {
-    console.log(flags)
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
