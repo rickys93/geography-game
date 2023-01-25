@@ -1,4 +1,4 @@
-url_base = "http://localhost:3000/";
+url_base = "https://geo-genius-server.onrender.com/";
 
 async function displayUserProfile() {
     // get current userProfile data
@@ -31,6 +31,11 @@ function updateNameHTML(user) {
     for (e of userPointsElements) {
         e.textContent = user.points;
     }
+}
+
+function checkNameAdded() {
+    const userName = document.getElementsByClassName("user-name")[0];
+    return userName.textContent.length > 0;
 }
 
 displayUserProfile();
