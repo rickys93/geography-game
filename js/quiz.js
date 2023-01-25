@@ -1,5 +1,5 @@
 //get a random country to start the quiz:
-let i = 0;
+;
 let answers={};
 let result;
 
@@ -124,7 +124,6 @@ async function start() {
     q4a4.setAttribute("value", languages[3]);
     q4a4.textContent = `${languages[3]}`;
     q4.appendChild(q4a4);
-
     
 }
 
@@ -156,6 +155,28 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
     //array of 5 numbers, corresponding to the order of the 5 questions, 1 for a correct answer and 0 for incorrect
     console.log(result)
+
+    //sum score
+    const sum = result.reduce((x, y) => x + y, 0);
+
+    //display card showing user score
+    const card = document.getElementById("scorecard");
+    card.setAttribute("class", "scorecard");
+    const score = document.createElement("p");
+    score.setAttribute("class", "qtext");
+    score.textContent = `You scored ${sum}/5`
+    card.appendChild(score);
+    const button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.setAttribute("class", "button");
+    button.setAttribute("id", "button");
+    button.textContent = "Play Again";
+    card.appendChild(button);
+})
+
+document.getElementById("scorecard").addEventListener("click", (e) => {
+    i++;
+    document.getElementById
 })
 
 start();
