@@ -24,19 +24,18 @@ skipButton.style.display = "none";
 async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
-    return flags
+    return flags;
 }
 
-console.log(getFlags())
+console.log(getFlags());
 
- function displayFlag() {
-
+function displayFlag() {
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
 
     flags.splice(flags.indexOf(flags[randomId]), 1);
-    console.log(flags)
+    console.log(flags);
 
     const flagImage = document.querySelector("#flag-image");
 
@@ -99,9 +98,8 @@ flagHint.addEventListener("click", showHint);
 function skipFlag(e) {
     e.preventDefault();
 
-    displayFlag()
+    displayFlag();
 }
-
 
 let intervalId;
 
@@ -120,11 +118,12 @@ function startCountdownTimer() {
 }
 
 async function gameStart(e) {
-    // if (!checkNameAdded()) {
-    //     alert("Please make sure name entered on home page.");
-    //     return;
-    // }
-    flags = await getFlags()
+    if (!checkNameAdded()) {
+        alert("Please make sure name entered on home page.");
+        return;
+    }
+
+    flags = await getFlags();
     //console.log(flags)
 
     if (!displayFlag()) {
@@ -141,7 +140,7 @@ async function gameStart(e) {
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
-    timer.textContent = 10;
+    timer.textContent = 60;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
     flagImage.height = "100%";
