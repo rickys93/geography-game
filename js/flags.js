@@ -24,6 +24,8 @@ async function getFlags() {
     const flags = await response.json();
     return flags
 }
+getFlags()
+flags = getFlags()
 
 function displayFlag() {
 
