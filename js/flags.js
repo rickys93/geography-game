@@ -22,6 +22,7 @@ const skipButton = document.querySelector("#skip");
 skipButton.style.display = "none";
 
 let wrongSound;
+let rightSound;
 
 function sound(src) {
     this.sound = document.createElement("audio");
@@ -88,6 +89,7 @@ async function guessAnswer(e) {
     userGuess = userGuess.charAt(0).toUpperCase() + userGuess.slice(1);
 
     if (userGuess.toLowerCase() === correctAnswer.textContent.toLowerCase()) {
+        rightSound.play();
         correctHeading.textContent = "CORRECT!";
         let gameScore = +score.textContent;
         gameScore += 1;
@@ -151,6 +153,7 @@ async function gameStart(e) {
     }
 
     wrongSound = new sound("./sounds/wrong.mp3");
+    rightSound = new sound("./sounds/right.mp3")
     guessButton.addEventListener("submit", guessAnswer);
     startResetButton.removeEventListener("click", gameStart);
     startResetButton.addEventListener("click", resetGame);
