@@ -141,7 +141,7 @@ async function gameStart(e) {
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
-    timer.textContent = 60;
+    timer.textContent = 10;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
     flagImage.height = "100%";
@@ -178,7 +178,7 @@ async function addScore(score) {
     score = +score;
     if (typeof score !== "number") {
         console.log(
-            "Issue with addScore funciton. Score entry not of type number"
+            "Issue with addScore function. Score entry not of type number"
         );
         return;
     }
@@ -188,12 +188,13 @@ async function addScore(score) {
 }
 
 async function addScoreToLeaderboard(score) {
-    let name = document.getElementsByClassName("user-name")[0].textContent;
+    let username = document.getElementsByClassName("user-name")[0].textContent;
 
     let entry = {
-        name,
+        username,
         score,
     };
+
     let options = {
         method: "POST",
         body: JSON.stringify(entry),
@@ -204,6 +205,7 @@ async function addScoreToLeaderboard(score) {
     };
     console.log(options);
     const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
+    console.log(res);
     const data = await res.json();
 
     console.log(data);
@@ -222,9 +224,10 @@ async function addScoreToProfile(score) {
             "Content-Type": "application/json",
         },
     };
-    console.log(options);
     const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
+    if (data.rankUp) {
+    }
     displayUserProfile();
 }
 

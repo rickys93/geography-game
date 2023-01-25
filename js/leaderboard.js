@@ -2,17 +2,14 @@ let url_base = "https://geo-genius-server.onrender.com/";
 
 async function addLeaderboardData(leaderboard) {
     let leaderboardData = await getLeaderboardData(leaderboard);
-    console.log(leaderboardData);
     const tableRows = document.querySelectorAll(
         "#" + leaderboard + " tbody tr"
     );
 
     for (const [index, entry] of leaderboardData.entries()) {
         for (key in entry) {
-            let cell = tableRows[index].getElementsByClassName(
-                key + "-cell"
-            )[0];
-
+            let className = key + "-cell";
+            let cell = tableRows[index].getElementsByClassName(className)[0];
             cell.textContent = entry[key];
         }
     }
@@ -20,7 +17,6 @@ async function addLeaderboardData(leaderboard) {
 
 async function getLeaderboardData(leaderboard) {
     const res = await fetch(url_base + "leaderboards/" + leaderboard);
-    console.log(await res);
     if (res.status !== 200) {
         console.log("Issue getting json data");
         console.log(await res.json());
