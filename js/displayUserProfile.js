@@ -1,4 +1,4 @@
-url_base = "https://geo-genius-server.onrender.com/";
+url_base = "http://localhost:3000/";
 
 async function displayUserProfile() {
     // get current userProfile data

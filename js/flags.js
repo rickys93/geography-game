@@ -43,7 +43,7 @@ function displayFlag() {
     skipButton.style.display = "inline";
     flagHint.style.display = "block";
 
-    startResetButton.textContent = "RESET";
+    startResetButton.textContent = "QUIT";
 
     flagImage.src = randomFlag["flagFile"];
     //will appear when guessed correctly
@@ -137,6 +137,7 @@ async function gameStart(e) {
     startCountdownTimer();
 }
 
+// Reset the game countdown timer, points, html object styles etc
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
@@ -153,6 +154,7 @@ function resetGame(e) {
     flagHint.style.display = "none";
 }
 
+// This is called once the countdown timer hits 0
 function gameFinished() {
     flagImage.style.display = "none";
     gameOver.style.display = "flex";
