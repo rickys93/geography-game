@@ -1,7 +1,7 @@
-//get a random country to start the quiz:
-;
+let i = 0;
 let answers={};
 let result;
+
 
 //generate country and questions
 async function start() {
@@ -36,6 +36,7 @@ async function start() {
     //display generated country:
     const countrycard = document.getElementById("countrycard");
     const q = document.createElement("p");
+    q.setAttribute("id", 1);
     q.classList.add("countrytext");
     q.textContent = `Country: ${country["country"]}`;
     countrycard.appendChild(q);
@@ -43,30 +44,35 @@ async function start() {
     //display questions
     const question1 = document.getElementById("question1");
     const text1 = document.createElement("p");
+    text1.setAttribute("id", 2);
     text1.classList.add("qtext");
     text1.textContent = `Question 1: Which Hemisphere is ${country["country"]} in?`;
     question1.appendChild(text1);
 
     const question2 = document.getElementById("question2");
     const text2 = document.createElement("p");
+    text2.setAttribute("id", 3);
     text2.classList.add("qtext");
     text2.textContent = `Question 2: Which continient is ${country["country"]} in?`;
     question2.appendChild(text2);
 
     const question3 = document.getElementById("question3");
     const text3 = document.createElement("p");
+    text3.setAttribute("id", 4);
     text3.classList.add("qtext");
     text3.textContent = `Question 3: What is the capital city of ${country["country"]}?`;
     question3.appendChild(text3);
 
     const question4 = document.getElementById("question4");
     const text4 = document.createElement("p");
+    text4.setAttribute("id", 5);
     text4.classList.add("qtext");
     text4.textContent = `Question 4: What language is spoken in ${country["country"]}?`;
     question4.appendChild(text4);
 
     const question5 = document.getElementById("question5");
     const text5 = document.createElement("p");
+    text5.setAttribute("id", 6);
     text5.classList.add("qtext");
     text5.textContent = `Question 5: Estimate the country's population`;
     question5.appendChild(text5);
@@ -79,52 +85,70 @@ async function start() {
     //question 3:
     let capitals = potanswers["capital"];
 
-
     const q3 = document.getElementById("q3");
     const q3a1 = document.createElement("option");
+    q3a1.setAttribute("id", 7);
     q3a1.setAttribute("value", capitals[0]);
     q3a1.textContent = `${capitals[0]}`
     q3.appendChild(q3a1);
 
     const q3a2 = document.createElement("option");
+    q3a2.setAttribute("id", 8);
     q3a2.setAttribute("value", capitals[1]);
     q3a2.textContent = `${capitals[1]}`;
     q3.appendChild(q3a2);
-
+    
     const q3a3 = document.createElement("option");
+    q3a3.setAttribute("id", 9);
     q3a3.setAttribute("value", capitals[2]);
     q3a3.textContent = `${capitals[2]}`;
     q3.appendChild(q3a3);
-
+    
     const q3a4 = document.createElement("option");
+    q3a4.setAttribute("id", 10);
     q3a4.setAttribute("value", capitals[3]);
     q3a4.textContent = `${capitals[3]}`;
     q3.appendChild(q3a4);
-
+    
     //question 4:
     let languages = potanswers["languages"];
     
     const q4 = document.getElementById("q4");
     const q4a1 = document.createElement("option");
+    q4a1.setAttribute("id", 11);
     q4a1.setAttribute("value", languages[0]);
     q4a1.textContent = `${languages[0]}`;
     q4.appendChild(q4a1);
 
     const q4a2 = document.createElement("option");
+    q4a2.setAttribute("id", 12);
     q4a2.setAttribute("value", languages[1]);
     q4a2.textContent = `${languages[1]}`;
     q4.appendChild(q4a2);
-
+    
     const q4a3 = document.createElement("option");
+    q4a3.setAttribute("id", 13);
     q4a3.setAttribute("value", languages[2]);
     q4a3.textContent = `${languages[2]}`;
     q4.appendChild(q4a3);
-
+    
     const q4a4 = document.createElement("option");
+    q4a4.setAttribute("id", 14);
     q4a4.setAttribute("value", languages[3]);
     q4a4.textContent = `${languages[3]}`;
     q4.appendChild(q4a4);
     
+    document.getElementById("scorecard").addEventListener("click", (e) => {
+        document.getElementById("button").remove();
+        document.getElementById("scorecard").setAttribute("class", "");
+        for (let j = 1; j < 16; j++){
+            document.getElementById(`${j}`).remove();
+        }
+        i++;
+        if (i > 11){ i = 0 };
+        document.getElementById("form").reset();
+        start();
+    })
 }
 
 // function feedback() {
@@ -163,6 +187,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     const card = document.getElementById("scorecard");
     card.setAttribute("class", "scorecard");
     const score = document.createElement("p");
+    score.setAttribute("id", "15");
     score.setAttribute("class", "qtext");
     score.textContent = `You scored ${sum}/5`
     card.appendChild(score);
@@ -174,9 +199,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     card.appendChild(button);
 })
 
-document.getElementById("scorecard").addEventListener("click", (e) => {
-    i++;
-    document.getElementById
-})
+
+const rem = () => {
+
+}
 
 start();

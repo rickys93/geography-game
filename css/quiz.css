@@ -96,3 +96,29 @@
     width: 100px;
     height: 55px;
 }
+
+
+.scorecard {
+    margin-top: 3%;
+    border: 1px solid #000000;
+    margin-left: 10px;;
+    color: white;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--pink);
+    height: 81px;
+    width: 483px;
+}
+
+.button {
+    position: absolute;
+    height: 81px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    right: 30%;
+    top: 99.8%;
+    font-size: 28px;
+}
