@@ -223,12 +223,6 @@
     justify-content: center;
 }
 
-.submit-button-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .name-submit-button {
     padding: 25px;
     border-radius: 20px;

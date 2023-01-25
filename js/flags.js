@@ -17,22 +17,52 @@ const timer = document.getElementById("countdown-timer");
 const flagImage = document.querySelector("#flag-image");
 const gameOver = document.querySelector(".game-finished");
 const flagHint = document.querySelector("#hint");
+flagHint.style.display = "none";
+const skipButton = document.querySelector("#skip");
+skipButton.style.display = "none";
 
+let wrongSound;
+let rightSound;
 
-async function displayFlag() {
-    
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
+async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
+    return flags
+}
+
+console.log(getFlags())
+
+ function displayFlag() {
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
 
+    flags.splice(flags.indexOf(flags[randomId]), 1);
+    console.log(flags)
+
     const flagImage = document.querySelector("#flag-image");
 
     whatFlagHeader.style.visibility = "visible";
+    skipButton.style.display = "inline";
+    flagHint.style.display = "block";
 
-    startResetButton.textContent = "RESET";
+    startResetButton.textContent = "QUIT";
 
     flagImage.src = randomFlag["flagFile"];
     //will appear when guessed correctly
@@ -59,6 +89,7 @@ async function guessAnswer(e) {
     userGuess = userGuess.charAt(0).toUpperCase() + userGuess.slice(1);
 
     if (userGuess.toLowerCase() === correctAnswer.textContent.toLowerCase()) {
+        rightSound.play();
         correctHeading.textContent = "CORRECT!";
         let gameScore = +score.textContent;
         gameScore += 1;
@@ -69,6 +100,7 @@ async function guessAnswer(e) {
     } else if (userGuess === correctAnswer.textContent) {
         correctHeading.textContent = "CORRECT!";
     } else {
+        wrongSound.play();
         correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`;
         displayFlag();
     }
@@ -83,6 +115,13 @@ function showHint(e) {
 }
 
 flagHint.addEventListener("click", showHint);
+
+function skipFlag(e) {
+    e.preventDefault();
+
+    displayFlag()
+}
+
 
 let intervalId;
 
@@ -100,27 +139,32 @@ function startCountdownTimer() {
     }, 1000);
 }
 
-function gameStart(e) {
+async function gameStart(e) {
     // if (!checkNameAdded()) {
     //     alert("Please make sure name entered on home page.");
     //     return;
     // }
+    flags = await getFlags()
+    //console.log(flags)
 
     if (!displayFlag()) {
         alert("Error while loading flags. Please try again later.");
         return;
     }
 
+    wrongSound = new sound("./sounds/wrong.mp3");
+    rightSound = new sound("./sounds/right.mp3")
     guessButton.addEventListener("submit", guessAnswer);
     startResetButton.removeEventListener("click", gameStart);
     startResetButton.addEventListener("click", resetGame);
     startCountdownTimer();
 }
 
+// Reset the game countdown timer, points, html object styles etc
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
-    timer.textContent = 60;
+    timer.textContent = 10;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
     flagImage.height = "100%";
@@ -129,8 +173,11 @@ function resetGame(e) {
     guessButton.addEventListener("submit", emptyFunction);
     startResetButton.addEventListener("click", gameStart);
     startResetButton.textContent = "Click to play";
+    skipButton.style.display = "none";
+    flagHint.style.display = "none";
 }
 
+// This is called once the countdown timer hits 0
 function gameFinished() {
     flagImage.style.display = "none";
     gameOver.style.display = "flex";
@@ -155,7 +202,7 @@ async function addScore(score) {
     score = +score;
     if (typeof score !== "number") {
         console.log(
-            "Issue with addScore funciton. Score entry not of type number"
+            "Issue with addScore function. Score entry not of type number"
         );
         return;
     }
@@ -165,12 +212,13 @@ async function addScore(score) {
 }
 
 async function addScoreToLeaderboard(score) {
-    let name = document.getElementsByClassName("user-name")[0].textContent;
+    let username = document.getElementsByClassName("user-name")[0].textContent;
 
     let entry = {
-        name,
+        username,
         score,
     };
+
     let options = {
         method: "POST",
         body: JSON.stringify(entry),
@@ -181,6 +229,7 @@ async function addScoreToLeaderboard(score) {
     };
     console.log(options);
     const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
+    console.log(res);
     const data = await res.json();
 
     console.log(data);
@@ -199,11 +248,13 @@ async function addScoreToProfile(score) {
             "Content-Type": "application/json",
         },
     };
-    console.log(options);
     const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
+    if (data.rankUp) {
+    }
     displayUserProfile();
 }
 
 startResetButton.addEventListener("click", gameStart);
 guessButton.addEventListener("submit", emptyFunction);
+skipButton.addEventListener("click", skipFlag);

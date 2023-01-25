@@ -12,7 +12,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Flag Frenzy</title>
+        <title>GeoGenius - Level up and become a Geo Genius</title>
+        <link rel="icon" type="image/x-icon" href="/images/geography.png" />
         <script defer src="./js/displayUserProfile.js"></script>
         <script defer src="./js/flags.js"></script>
     </head>
@@ -46,12 +47,12 @@
                             <div class="mini-profile-label">Name:</div>
                             <div class="user-name"></div>
                         </div>
-                        <div class="user-rank">Geo Genius!</div>
+                        <div class="user-rank"></div>
                         <div class="profile-container">
                             <div class="mini-profile-label">Points:</div>
                             <div class="user-points"></div>
                         </div>
-                        <div class="user-stars">🌟🌟🌟</div>
+                        <div class="user-stars"></div>
                     </div>
                 </div>
             </nav>
@@ -87,12 +88,12 @@
                             <div class="mini-profile-label">Name:</div>
                             <div class="user-name"></div>
                         </div>
-                        <div class="user-rank">Geo Genius!</div>
+                        <div class="user-rank"></div>
                         <div class="profile-container">
                             <div class="mini-profile-label">Points:</div>
                             <div class="user-points"></div>
                         </div>
-                        <div class="user-stars">🌟🌟🌟</div>
+                        <div class="user-stars"></div>
                     </div>
                 </div>
             </nav>
@@ -105,7 +106,7 @@
                                 Score: <span id="flag-frenzy-score">0</span>
                             </div>
                             <div class="time-count" id="countdown-timer">
-                                10
+                                60
                             </div>
                         </div>
                         <div class="flag-image-container">
@@ -126,17 +127,25 @@
                                 </a>
                             </div>
                             <img
-                                src="images/question.png"
+                                src="./images/question.png"
                                 alt="A random flag"
                                 id="flag-image"
                             />
                         </div>
-                        <button
-                            class="button-colours small-button button-border"
-                            id="button"
-                        >
-                            Click to play
-                        </button>
+                        <div>
+                            <button
+                                class="button-colours small-button button-border"
+                                id="button"
+                            >
+                                Click to play
+                            </button>
+                            <button
+                                class="button-colours small-button button-border"
+                                id="skip"
+                            >
+                                Skip
+                            </button>
+                        </div>
                         <br />
                         <form id="form">
                             <input
