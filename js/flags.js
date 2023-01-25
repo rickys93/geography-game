@@ -108,10 +108,10 @@ function startCountdownTimer() {
 }
 
 function gameStart(e) {
-    if (!checkNameAdded()) {
-        alert("Please make sure name entered on home page.");
-        return;
-    }
+    // if (!checkNameAdded()) {
+    //     alert("Please make sure name entered on home page.");
+    //     return;
+    // }
 
     if (!displayFlag()) {
         alert("Error while loading flags. Please try again later.");
