@@ -1,52 +1,54 @@
 let url_base = "http://localhost:3000/";
 
 const submitNameButton = document.getElementById("submit-name-form");
+const usernameBox = document.getElementById("userNameInput");
+const signUpButton = document.getElementById("sign-up-button");
+const logInButton = document.getElementById("log-in-button");
+const logOutButton = document.getElementById("log-out-button");
+const signupLoginDiv = document.querySelector(".submit-button-div");
+const logoutDiv = document.querySelector(".log-out-button-div");
 
 // event listener function that gets added to submit button
-async function submitName(e) {
-    e.preventDefault();
+// async function submitName(e) {
+//     e.preventDefault();
 
-    // if no name entered into box, return
-    let name = e.target.userNameInput.value;
-    if (!name) {
-        return;
-    }
+//     // if no name entered into box, return
+//     let name = e.target.userNameInput.value;
+//     if (!name) {
+//         return;
+//     }
 
-    // capitalize the name
-    name = name.charAt(0).toUpperCase() + name.slice(1);
+//     // get current userProfile data
+//     let userProfile = await getUserProfile();
 
-    // get current userProfile data
-    let userProfile = await getUserProfile();
+//     let user = {};
+//     user.username = name;
+//     user.points = 0;
 
-    let user = {};
-    user.name = name;
-    user.points = 0;
+//     if (!updateNewUser(user)) {
+//         // error updating the same for same reason
+//         console.log("Name not changed");
+//         return;
+//     }
 
-    if (!updateNewUser(user)) {
-        // error updating the same for same reason
-        console.log("Name not changed");
-        return;
-    }
+//     updateNameHTML(user);
+//     document.getElementById("userNameInput").value = "";
 
-    updateNameHTML(user);
-    document.getElementById("userNameInput").value = "";
+//     if (userProfile.username) {
+//         // there was already name in database
+//         alert("Name successfully changed!");
+//         return;
+//     }
+//     // name added to database
+//     alert("Name successfully added!");
+//     displayUserProfile();
+// }
 
-    if (userProfile.name) {
-        // there was already name in database
-        alert("Name successfully changed!");
-        return;
-    }
-    // name added to database
-    alert("Name successfully added!");
-    displayUserProfile();
-}
-
-async function displayUserProfile() {
-    // get current userProfile data
-    let userProfile = await getUserProfile();
-    console.log(userProfile);
-    updateNameHTML(userProfile);
-}
+// async function displayUserProfile() {
+//     // get current userProfile data
+//     let userProfile = await getUserProfile();
+//     updateNameHTML(userProfile);
+// }
 
 // call the PUT user endpoint to edit the userProfile data
 async function updateNewUser(user) {
@@ -69,8 +71,6 @@ async function updateNewUser(user) {
 async function getUserProfile() {
     let res = await fetch(url_base + "user");
 
-    console.log(await res);
-
     if (res.status !== 200) {
         console.log("Could not get user profile data from user endpoint");
         return;
@@ -85,7 +85,7 @@ async function getUserProfile() {
 function updateNameHTML(user) {
     const userNameElements = document.getElementsByClassName("user-name");
     for (e of userNameElements) {
-        e.textContent = user.name;
+        e.textContent = user.username;
     }
     const userPointsElements = document.getElementsByClassName("user-points");
     for (e of userPointsElements) {
@@ -117,7 +117,136 @@ async function getRandomFact() {
     return await randomFact;
 }
 
+function displayLogOutButton() {
+    signupLoginDiv.style.display = "none";
+    logoutDiv.style.display = "flex";
+    usernameBox.style.visibility = "hidden";
+}
+
+function displaySignupLoginButton() {
+    signupLoginDiv.style.display = "flex";
+    logoutDiv.style.display = "none";
+    usernameBox.style.visibility = "visible";
+}
+
+async function signup(e) {
+    e.preventDefault();
+
+    usernameEntry = document.getElementById("userNameInput").value;
+
+    if (usernameEntry.length === 0) {
+        alert("Must enter a username");
+        return;
+    } else if (usernameEntry.length > 15) {
+        alert("Username must be less than 15 characters");
+        return;
+    }
+
+    const user = { username: usernameEntry };
+    const options = {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+
+    let response = await fetch(url_base + "users", options);
+
+    if (response.status === 409) {
+        console.log(response);
+        alert("Username already taken!");
+        return;
+    }
+    // display user profile
+    displayUserProfile();
+    displayLogOutButton();
+    alert("Successfully signed up!");
+    usernameBox.style.visibility = "hidden";
+}
+
+async function login(e) {
+    e.preventDefault();
+
+    currentUsername =
+        document.getElementsByClassName("user-name")[0].textContent;
+    if (currentUsername) {
+        alert("Already signed in! Sign out first.");
+        return;
+    }
+
+    usernameEntry = document.getElementById("userNameInput").value;
+
+    if (usernameEntry.length === 0) {
+        alert("Must enter a username");
+        return;
+    } else if (usernameEntry.length > 15) {
+        alert("Username must be less than 15 characters");
+        return;
+    }
+
+    let response = await fetch(url_base + "users/" + usernameEntry);
+    console.log(await response.json());
+
+    if (response.status === 404) {
+        console.log(response);
+        alert("Username not found! Try different username or sign up.");
+        return;
+    }
+
+    // display user profile
+    displayUserProfile();
+    displayLogOutButton();
+    alert(usernameEntry + " successfully signed in!");
+    usernameBox.style.visibility = "hidden";
+}
+
+async function logout(e) {
+    e.preventDefault();
+
+    const emptyUser = {
+        username: "",
+        points: 0,
+        rank: "",
+    };
+
+    const options = {
+        method: "PUT",
+        body: JSON.stringify(emptyUser),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+
+    let response = await fetch(url_base + "user", options);
+    console.log(await response.json());
+
+    // display user profile
+    displayUserProfile();
+    displaySignupLoginButton();
+    alert("Successfully signed out!");
+    usernameBox.style.visibility = "visible";
+}
+
+async function displayCorrectButton() {
+    // get current userProfile data
+    let userProfile = await getUserProfile();
+    if (userProfile.username) {
+        displayLogOutButton();
+    } else {
+        displaySignupLoginButton();
+    }
+}
+
+displayCorrectButton();
 newRandomFact();
 
-submitNameButton.addEventListener("submit", submitName);
+console.log(signUpButton);
+console.log(logInButton);
+signUpButton.addEventListener("click", signup);
+logInButton.addEventListener("click", login);
+logOutButton.addEventListener("click", logout);
+// submitNameButton.addEventListener("submit", submitName);
 randomiseButton.addEventListener("click", newRandomFact);
