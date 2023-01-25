@@ -5,14 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>GeoGenius</title>
-        <link rel="stylesheet" href="./css/quiz.css" />
         <link rel="stylesheet" href="./css/main-style.css" />
+        <link rel="stylesheet" href="./css/quiz.css" />
         <link
             rel="stylesheet"
             type="text/css"
             href="//fonts.googleapis.com/css?family=Jura"
         />
         <script defer src="./js/displayUserProfile.js"></script>
+        <script defer src="./js/quiz.js"></script>
     </head>
     <body>
         <div class="background-image">
@@ -96,70 +97,59 @@
             </nav>
             <section class="title">
                 Country Quiz
-                <div class="countrycard">
-                    <p class="countrytext">
-                        Country:<br /><!-- Country name variable here -->
-                    </p>
-                </div>
+                <div class="countrycard" id="countrycard"></div> 
             </section>
-            <div class="qbox">
-                <p class="qtext">Question 1:<!-- question variable? --></p>
-            </div>
-            <div class="abox">
-                <form action="">
-                    <select name="q1" id="" class="atext">
-                        <option value="a1">a1</option>
-                        <option value="a2">a2</option>
-                        <option value="a3">a3</option>
-                        <option value="a4">a4</option>
+            <form action="">
+            <div class="qbox" id="question1"></div>
+                <div class="abox">
+                    <select name="q1" id="q1" class="atext" required>
+                        <option value="">Answer:</option>
+                        <option value="North">North</option>
+                        <option value="South">South</option>
                     </select>
-                </form>
-            </div>
-            <div class="qbox"><p class="qtext">Question 2:</p></div>
-            <div class="abox">
-                <form action="">
-                    <select name="q1" id="" class="atext">
-                        <option value="a1">a1</option>
-                        <option value="a2">a2</option>
-                        <option value="a3">a3</option>
-                        <option value="a4">a4</option>
+                </div>
+                <div class="qbox" id="question2"></div>
+                <div class="abox">
+                    <select name="q2" id="q2" class="atext" required>
+                        <option value="">Answer:</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Oceania">Australasia/Oceania</option>
+                        <option value="Europe">Europe</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
                     </select>
-                </form>
-            </div>
-            <div class="qbox"><p class="qtext">Question 3:</p></div>
-            <div class="abox">
-                <form action="">
-                    <select name="q1" id="" class="atext">
-                        <option value="a1">a1</option>
-                        <option value="a2">a2</option>
-                        <option value="a3">a3</option>
-                        <option value="a4">a4</option>
+                </div>
+                <div class="qbox" id="question3"></div>
+                <div class="abox">
+                    <select name="q3" id="q3" class="atext" required>
+                        <option value="">Answer:</option>
                     </select>
-                </form>
-            </div>
-            <div class="qbox"><p class="qtext">Question 4:</p></div>
-            <div class="abox">
-                <form action="">
-                    <select name="q1" id="" class="atext">
-                        <option value="a1">a1</option>
-                        <option value="a2">a2</option>
-                        <option value="a3">a3</option>
-                        <option value="a4">a4</option>
+                </div>
+                <div class="qbox" id="question4"></div>
+                <div class="abox">
+                    <select name="q4" id="q4" class="atext" required>
+                        <option value="">Answer:</option>
+
                     </select>
-                </form>
-            </div>
-            <div class="qbox"><p class="qtext">Question 5:</p></div>
-            <div class="abox">
-                <form action="">
-                    <select name="q1" id="" class="atext">
-                        <option value="a1">a1</option>
-                        <option value="a2">a2</option>
-                        <option value="a3">a3</option>
-                        <option value="a4">a4</option>
+                </div>
+                <div class="qbox" id="question5"></div>
+                <div class="abox">
+                    <select name="q5" id="q5" class="atext" required>
+                        <option value="">Answer:</option>
+                        <option value="0">0 - 50 Million</option>
+                        <option value="1">50 - 100 Million</option>
+                        <option value="2">100 - 200 Million</option>
+                        <option value="3">200 - 500 Million</option>
+                        <option value="4">Over 500 Million</option>
                     </select>
-                </form>
-            </div>
-            <input type="submit" class="submit" />
+                </div>
+                
+                <input type="submit" value="Submit" class="enter">
+                
+            </form>
         </div>
     </body>
 </html>
+
