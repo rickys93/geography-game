@@ -1,4 +1,4 @@
-let url_base = "http://localhost:3000/";
+let url_base = "https://geo-genius-server.onrender.com/";
 
 //this works
 const startResetButton = document.getElementById("button");
