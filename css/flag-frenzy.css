@@ -94,6 +94,12 @@ button {
     font-weight: 600;
 }
 
+.leaderboard-icon {
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
 #flagGuess,
 #guess-button {
     padding: 10px;

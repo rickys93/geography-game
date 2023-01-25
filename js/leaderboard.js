@@ -2,6 +2,7 @@ let url_base = "http://localhost:3000/";
 
 async function addLeaderboardData(leaderboard) {
     let leaderboardData = await getLeaderboardData(leaderboard);
+    console.log(leaderboardData);
     const tableRows = document.querySelectorAll(
         "#" + leaderboard + " tbody tr"
     );

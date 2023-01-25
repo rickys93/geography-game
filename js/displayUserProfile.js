@@ -33,4 +33,9 @@ function updateNameHTML(user) {
     }
 }
 
+function checkNameAdded() {
+    const userName = document.getElementsByClassName("user-name")[0];
+    return userName.textContent.length > 0;
+}
+
 displayUserProfile();

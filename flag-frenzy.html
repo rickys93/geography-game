@@ -13,8 +13,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Flag Frenzy</title>
-        <script defer src="./js/flags.js"></script>
         <script defer src="./js/displayUserProfile.js"></script>
+        <script defer src="./js/flags.js"></script>
     </head>
     <body>
         <div class="background-image">
@@ -105,15 +105,25 @@
                                 Score: <span id="flag-frenzy-score">0</span>
                             </div>
                             <div class="time-count" id="countdown-timer">
-                                60
+                                10
                             </div>
                         </div>
                         <div class="flag-image-container">
                             <div class="game-finished">
-                                <div>GAME OVER</div>
+                                <div>GAME OVER!</div>
                                 <div>
                                     SCORE: <span id="final-score">0</span>
                                 </div>
+                                <a
+                                    class="leaderboard-link leaderboard-icon"
+                                    href="./leaderboard.html"
+                                    ><img
+                                        class=""
+                                        src="../images/trophy.png"
+                                        alt=""
+                                    />
+                                    →
+                                </a>
                             </div>
                             <img
                                 src="images/question.png"

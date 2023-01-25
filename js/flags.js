@@ -20,13 +20,13 @@ const flagHint = document.querySelector("#hint");
 
 async function displayFlag() {
     //fetch array of flag objects
-    const response = await fetch(url_base + "flag-facts"); 
+    const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
-    
+
     const flagImage = document.querySelector("#flag-image");
 
     whatFlagHeader.style.visibility = "visible";
@@ -34,7 +34,7 @@ async function displayFlag() {
     startResetButton.textContent = "RESET";
 
     flagImage.src = randomFlag["flagFile"];
-     //will appear when guessed correctly
+    //will appear when guessed correctly
     funFact.textContent = `Hint: ${randomFlag["interestingFact"]}`;
 
     correctHeading.textContent = "";
@@ -42,6 +42,8 @@ async function displayFlag() {
 
     //assign country of flag to correct answer to be used with guess button + form
     correctAnswer.textContent = randomFlag["countryName"];
+
+    return true;
 }
 
 //function for when guess is clicked
@@ -97,6 +99,23 @@ function startCountdownTimer() {
     }, 1000);
 }
 
+function gameStart(e) {
+    if (!checkNameAdded()) {
+        alert("Please make sure name entered on home page.");
+        return;
+    }
+
+    if (!displayFlag()) {
+        alert("Error while loading flags. Please try again later.");
+        return;
+    }
+
+    guessButton.addEventListener("submit", guessAnswer);
+    startResetButton.removeEventListener("click", gameStart);
+    startResetButton.addEventListener("click", resetGame);
+    startCountdownTimer();
+}
+
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
@@ -111,14 +130,6 @@ function resetGame(e) {
     startResetButton.textContent = "Click to play";
 }
 
-function gameStart(e) {
-    displayFlag();
-    guessButton.addEventListener("submit", guessAnswer);
-    startResetButton.removeEventListener("click", gameStart);
-    startResetButton.addEventListener("click", resetGame);
-    startCountdownTimer();
-}
-
 function gameFinished() {
     flagImage.style.display = "none";
     gameOver.style.display = "flex";
@@ -126,7 +137,7 @@ function gameFinished() {
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
     document.getElementById("final-score").textContent = score.textContent;
-    addScoreToLeaderboard(score.textContent);
+    addScore(score.textContent);
 }
 
 function endGame() {
@@ -137,6 +148,19 @@ function endGame() {
 
 function emptyFunction(e) {
     e.preventDefault();
+}
+
+async function addScore(score) {
+    score = +score;
+    if (typeof score !== "number") {
+        console.log(
+            "Issue with addScore funciton. Score entry not of type number"
+        );
+        return;
+    }
+
+    addScoreToLeaderboard(score);
+    addScoreToProfile(score);
 }
 
 async function addScoreToLeaderboard(score) {
@@ -158,9 +182,26 @@ async function addScoreToLeaderboard(score) {
     const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
     const data = await res.json();
 
-    if (data.entryAdded) {
-        // congratulate made it on leaderboard
-    }
+    console.log(data);
+}
+
+async function addScoreToProfile(score) {
+    score = +score;
+    let entry = {
+        score,
+    };
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    console.log(options);
+    const res = await fetch(url_base + "user/addscore", options);
+    const data = await res.json();
+    displayUserProfile();
 }
 
 startResetButton.addEventListener("click", gameStart);
