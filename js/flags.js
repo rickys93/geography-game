@@ -21,21 +21,40 @@ flagHint.style.display = "none";
 const skipButton = document.querySelector("#skip");
 skipButton.style.display = "none";
 
+let wrongSound;
+let rightSound;
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
 async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
-    return flags;
+    return flags
 }
 
-console.log(getFlags());
+console.log(getFlags())
 
-function displayFlag() {
+ function displayFlag() {
+
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
 
     flags.splice(flags.indexOf(flags[randomId]), 1);
-    console.log(flags);
+    console.log(flags)
 
     const flagImage = document.querySelector("#flag-image");
 
@@ -70,6 +89,7 @@ async function guessAnswer(e) {
     userGuess = userGuess.charAt(0).toUpperCase() + userGuess.slice(1);
 
     if (userGuess.toLowerCase() === correctAnswer.textContent.toLowerCase()) {
+        rightSound.play();
         correctHeading.textContent = "CORRECT!";
         let gameScore = +score.textContent;
         gameScore += 1;
@@ -80,6 +100,7 @@ async function guessAnswer(e) {
     } else if (userGuess === correctAnswer.textContent) {
         correctHeading.textContent = "CORRECT!";
     } else {
+        wrongSound.play();
         correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`;
         displayFlag();
     }
@@ -98,8 +119,9 @@ flagHint.addEventListener("click", showHint);
 function skipFlag(e) {
     e.preventDefault();
 
-    displayFlag();
+    displayFlag()
 }
+
 
 let intervalId;
 
@@ -118,12 +140,11 @@ function startCountdownTimer() {
 }
 
 async function gameStart(e) {
-    if (!checkNameAdded()) {
-        alert("Please make sure name entered on home page.");
-        return;
-    }
-
-    flags = await getFlags();
+    // if (!checkNameAdded()) {
+    //     alert("Please make sure name entered on home page.");
+    //     return;
+    // }
+    flags = await getFlags()
     //console.log(flags)
 
     if (!displayFlag()) {
@@ -131,6 +152,8 @@ async function gameStart(e) {
         return;
     }
 
+    wrongSound = new sound("./sounds/wrong.mp3");
+    rightSound = new sound("./sounds/right.mp3")
     guessButton.addEventListener("submit", guessAnswer);
     startResetButton.removeEventListener("click", gameStart);
     startResetButton.addEventListener("click", resetGame);
@@ -141,7 +164,7 @@ async function gameStart(e) {
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
-    timer.textContent = 60;
+    timer.textContent = 10;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
     flagImage.height = "100%";
