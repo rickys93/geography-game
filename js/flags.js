@@ -21,6 +21,23 @@ flagHint.style.display = "none";
 const skipButton = document.querySelector("#skip");
 skipButton.style.display = "none";
 
+let wrongSound;
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
 async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
@@ -81,6 +98,7 @@ async function guessAnswer(e) {
     } else if (userGuess === correctAnswer.textContent) {
         correctHeading.textContent = "CORRECT!";
     } else {
+        wrongSound.play();
         correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`;
         displayFlag();
     }
@@ -132,6 +150,7 @@ async function gameStart(e) {
         return;
     }
 
+    wrongSound = new sound("./sounds/wrong.mp3");
     guessButton.addEventListener("submit", guessAnswer);
     startResetButton.removeEventListener("click", gameStart);
     startResetButton.addEventListener("click", resetGame);
