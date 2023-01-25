@@ -25,9 +25,11 @@ async function getFlags() {
     return flags
 }
 getFlags()
-// flags = getFlags()
+flags = getFlags()
+console.log(flags)
 
-function displayFlag() {
+function displayFlag(flags) {
+    console.log(flags)
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
