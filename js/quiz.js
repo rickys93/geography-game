@@ -232,7 +232,7 @@ async function addScoreToLeaderboard(score) {
         },
     };
     console.log(options);
-    const res = await fetch(url_base + "leaderboards/countryquiz", options);
+    const res = await fetch(api_base + "leaderboards/countryquiz", options);
     console.log(res);
     const data = await res.json();
 
@@ -252,7 +252,7 @@ async function addScoreToProfile(score) {
             "Content-Type": "application/json",
         },
     };
-    const res = await fetch(url_base + "user/addscore", options);
+    const res = await fetch(api_base + "user/addscore", options);
     const data = await res.json();
     if (data.rankUp) {
     }
