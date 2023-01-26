@@ -43,6 +43,14 @@
     border: 1px solid black;
     
 }
+#button2 {
+    margin-left: 200px;
+    padding: 10px 30px 10px 30px;
+    border-style: none;
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .countrytext {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

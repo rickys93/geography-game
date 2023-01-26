@@ -268,12 +268,13 @@ async function addScoreToProfile(score) {
 }
 
 let main = document.getElementById("body");
-const button2 = document.createElement("button");
-button2.setAttribute("type", "button");
-button2.setAttribute("class", "button2");
-button2.setAttribute("id", "button2");
-button2.textContent = "Start";
-main.appendChild(button2);
+const button2 = document.getElementById("button2");
+// button2.setAttribute("type", "button");
+// button2.setAttribute("class", "button2");
+// button2.setAttribute("id", "button2");
+//button2.style.display = "block"
+//button2.textContent = "Start";
+// countrycard.appendChild(button2);
 
 closePopupButton.addEventListener("click", closePopup);
 
