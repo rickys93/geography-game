@@ -179,6 +179,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
 
+    addScore(sum);
+
     //display card showing user score
     const card = document.getElementById("scorecard");
     card.setAttribute("class", "scorecard");
@@ -194,6 +196,63 @@ document.querySelector("form").addEventListener("submit", (e) => {
     button.textContent = "Play Again";
     card.appendChild(button);
 });
+
+async function addScore(score) {
+    score = +score;
+    if (typeof score !== "number") {
+        console.log(
+            "Issue with addScore function. Score entry not of type number"
+        );
+        return;
+    }
+
+    addScoreToLeaderboard(score);
+    addScoreToProfile(score);
+}
+
+async function addScoreToLeaderboard(score) {
+    let username = document.getElementsByClassName("user-name")[0].textContent;
+
+    let entry = {
+        username,
+        score,
+    };
+
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    console.log(options);
+    const res = await fetch(url_base + "leaderboards/countryquiz", options);
+    console.log(res);
+    const data = await res.json();
+
+    console.log(data);
+}
+
+async function addScoreToProfile(score) {
+    score = +score;
+    let entry = {
+        score,
+    };
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    const res = await fetch(url_base + "user/addscore", options);
+    const data = await res.json();
+    if (data.rankUp) {
+    }
+    displayUserProfile();
+}
 
 const rem = () => {};
 

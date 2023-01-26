@@ -93,6 +93,10 @@ button {
     font-size: 40px;
     font-weight: 600;
 }
+#gameOver {
+    font-size: 50px;
+    color:#e869cc;
+}
 
 .leaderboard-icon {
     display: flex;
@@ -128,10 +132,12 @@ p {
 }
 
 h4 {
-    color: var(--pink);
+    color: white;
     padding-top: -40px;
     padding-bottom: 20px;
-    font-size: 30px;
+    padding-right: -30px;
+    padding-left: -30px;
+    font-size: 20px;
     text-align: center;
 }
 
