@@ -113,7 +113,7 @@ async function start() {
 
     //populate answer boxes:
     //get random data incl correct ans from api
-    const res2 = await fetch(url_base + `country-facts/${i}`);
+    const res2 = await fetch(url_base + `country-facts/${lst[i]}`);
     const potanswers = await res2.json();
 
     //question 3:
