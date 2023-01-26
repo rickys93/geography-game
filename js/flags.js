@@ -10,6 +10,7 @@ const correctAnswer = document.getElementById("correctAnswer");
 const funFact = document.getElementById("funFact");
 //heading to appear when user guesses correctly
 const correctHeading = document.getElementById("correct");
+correctHeading.style.display = "none";
 //what flag is this heading to appear when user clicks new flag/click to play
 const whatFlagHeader = document.getElementById("whatFlag");
 const score = document.getElementById("flag-frenzy-score");
@@ -48,6 +49,7 @@ async function getFlags() {
 console.log(getFlags())
 
  function displayFlag() {
+    correctHeading.style.display = "block";
 
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
@@ -68,7 +70,7 @@ console.log(getFlags())
     //will appear when guessed correctly
     funFact.textContent = `Hint: ${randomFlag["interestingFact"]}`;
 
-    correctHeading.textContent = "";
+    //correctHeading.textContent = "";
     flagHint.textContent = "Click to reveal a hint";
 
     //assign country of flag to correct answer to be used with guess button + form
@@ -97,8 +99,6 @@ async function guessAnswer(e) {
         displayFlag();
     } else if (userGuess.length === 0) {
         correctHeading.textContent = "Please enter a guess";
-    } else if (userGuess === correctAnswer.textContent) {
-        correctHeading.textContent = "CORRECT!";
     } else {
         wrongSound.play();
         correctHeading.textContent = `WRONG! The correct answer was ${correctAnswer.textContent}`;
