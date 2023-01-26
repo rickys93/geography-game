@@ -4,8 +4,6 @@ let i = 0;
 
 console.log(lst);
 
-
-
 url_base;
 let answers = {};
 let result;
@@ -207,24 +205,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     for (let j = 1; j < 16; j++) {
         document.getElementById(`${j}`).remove();
     }
-
+    i++;
     document.getElementById("form").reset();
     start();
-
-    //display card showing user score
-    // const card = document.getElementById("scorecard");
-    // card.setAttribute("class", "scorecard");
-    // const score = document.createElement("p");
-    // score.setAttribute("id", "15");
-    // score.setAttribute("class", "qtext");
-    // score.textContent = `You scored ${sum}/5`;
-    // card.appendChild(score);
-    // const button = document.createElement("button");
-    // button.setAttribute("type", "button");
-    // button.setAttribute("class", "button");
-    // button.setAttribute("id", "button");
-    // button.textContent = "Play Again";
-    // card.appendChild(button);
 });
 
 async function addScore(score) {
