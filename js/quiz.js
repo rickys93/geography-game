@@ -1,4 +1,4 @@
-let arr = [...Array(12).keys()];//ordered array of numbers from 0 to 11
+let arr = [...Array(12).keys()]; //ordered array of numbers from 0 to 11
 let lst = [];
 let i = 0;
 
@@ -9,32 +9,28 @@ let answers = {};
 let result;
 let runningCount = [];
 
-function set () {
+function set() {
     lst = [];
-    for (let i = 0; i < 12; i++){
-        let rand = Math.floor(Math.random() * arr.length) // random number dependent on length of arr
-        lst.push(arr[rand]);//append random number to list;
-        arr.splice(arr.indexOf(arr[rand]), 1);//remove number so it can't be picked again
+    for (let i = 0; i < 12; i++) {
+        let rand = Math.floor(Math.random() * arr.length); // random number dependent on length of arr
+        lst.push(arr[rand]); //append random number to list;
+        arr.splice(arr.indexOf(arr[rand]), 1); //remove number so it can't be picked again
     }
-    arr = [...Array(12).keys()] //reset array
+    arr = [...Array(12).keys()]; //reset array
 }
 
-function reset () {
+function reset() {
     set();
     for (let j = 1; j < 17; j++) {
         document.getElementById(`${j}`).remove();
     }
     document.getElementById("form").reset();
-    document.getElementById("")
+    document.getElementById("");
     startCountdownTimer();
 }
 
-
-
-
 //generate country and questions
 async function start() {
-    document.getElementById("scorecard").setAttribute("class", "");
     //request the countries from the api
     const res = await fetch(url_base + "countries");
     //get data from request
@@ -78,14 +74,14 @@ async function start() {
     const text1 = document.createElement("p");
     text1.setAttribute("id", 2);
     text1.classList.add("qtext");
-    text1.textContent = `Question 1: Which Hemisphere is ${country["country"]} in?`;
+    text1.textContent = `Question 1: Which hemisphere is ${country["country"]} in?`;
     question1.appendChild(text1);
 
     const question2 = document.getElementById("question2");
     const text2 = document.createElement("p");
     text2.setAttribute("id", 3);
     text2.classList.add("qtext");
-    text2.textContent = `Question 2: Which continient is ${country["country"]} in?`;
+    text2.textContent = `Question 2: Which continent is ${country["country"]} in?`;
     question2.appendChild(text2);
 
     const question3 = document.getElementById("question3");
@@ -198,7 +194,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
-    
+
     // document.getElementById("button").remove();
     for (let j = 1; j < 16; j++) {
         document.getElementById(`${j}`).remove();
@@ -261,6 +257,7 @@ async function addScoreToProfile(score) {
     const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
     if (data.rankUp) {
+        openPopup(data.userProfile.rank.name);
     }
     displayUserProfile();
 }
@@ -278,7 +275,7 @@ closePopupButton.addEventListener("click", closePopup);
 
 document.getElementById("button2").addEventListener("click", () => {
     document.getElementById("button2").remove();
-    set()
+    set();
     start();
     startCountdownTimer();
 });
@@ -298,33 +295,40 @@ function startCountdownTimer() {
     }, 1000);
 }
 
-
 const gameOver = () => {
     //display card showing user score
     const total = runningCount.reduce((x, y) => x + y, 0);
     addScore(total);
 
+    // const card = document.getElementById("scorecard");
+    // card.setAttribute("class", "scorecard");
+    const score = document.getElementById("16");
     const card = document.getElementById("scorecard");
-    card.setAttribute("class", "scorecard");
-    const score = document.createElement("p");
-    score.setAttribute("id", "16");
-    score.setAttribute("class", "qtext");
-    if (runningCount.length) {score.textContent = `You scored ${total}/${runningCount.length * 5}`;}
-    else {score.textContent = `Try again!`;}
-    card.appendChild(score);
-    const button = document.createElement("button");
-    button.setAttribute("type", "button");
-    button.setAttribute("class", "button");
-    button.setAttribute("id", "button");
-    button.textContent = "Play Again";
-    card.appendChild(button);
-    
-    document.getElementById("button").addEventListener("click", () => {
+    const button = document.getElementById("button");
+    // const score = document.createElement("p");
+    // score.setAttribute("id", "16");
+    // score.setAttribute("class", "qtext");
+    if (runningCount.length) {
+        score.textContent = `You scored ${total}/${runningCount.length * 5}`;
+    } else {
+        score.textContent = `Try again!`;
+    }
+    // card.appendChild(score);
+    // const button = document.createElement("button");
+    // button.setAttribute("type", "button");
+    // button.setAttribute("class", "button");
+    // button.setAttribute("id", "button");
+    // button.textContent = "Play Again";
+    // card.appendChild(button);
+    card.style.visibility = "visible";
+    score.style.visibility = "visible";
+    button.style.visibility = "visible";
+
+    button.addEventListener("click", () => {
         document.getElementById("button").remove();
         reset();
         i = 0;
         start();
-    })
+    });
     runningCount = [];
-}
-
+};

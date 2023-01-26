@@ -22,23 +22,23 @@
             <nav class="navigation-bar">
                 <div class="nav-left">
                     <a class="logo" href="./index.html"
-                    ><span class="pink-text">G</span>eo<span
-                    class="pink-text"
-                    >G</span
-                    >enius<span class="pink-text">.</span></a
+                        ><span class="pink-text">G</span>eo<span
+                            class="pink-text"
+                            >G</span
+                        >enius<span class="pink-text">.</span></a
                     >
                 </div>
                 <div class="nav-left">
                     <a
-                    class="page-links button-colours"
-                    href="./flag-frenzy.html"
-                    >Flag Frenzy</a
+                        class="page-links button-colours"
+                        href="./flag-frenzy.html"
+                        >Flag Frenzy</a
                     >
                     <a class="page-links button-colours" href="./quiz.html"
-                    >Country Quiz</a
+                        >Country Quiz</a
                     >
                     <a class="leaderboard-link" href="./leaderboard.html"
-                    ><img class="" src="../images/trophy.png" alt=""
+                        ><img class="" src="../images/trophy.png" alt=""
                     /></a>
                 </div>
                 <div class="nav-right">
@@ -59,25 +59,25 @@
             <nav class="navigation-bar-small">
                 <div class="nav-left">
                     <a class="logo-small" href="./index.html"
-                    ><span class="pink-text">GG.</span></a
+                        ><span class="pink-text">GG.</span></a
                     >
                     <div class="dropdown">
                         <button class="dropbtn">
                             <img
-                            class="dropdown-img"
-                            src="../images/3-lines.png"
-                            alt=""
+                                class="dropdown-img"
+                                src="../images/3-lines.png"
+                                alt=""
                             />
                         </button>
                         <div class="dropdown-content">
                             <a class="page-links" href="./flag-frenzy.html"
-                            >Flag Frenzy</a
+                                >Flag Frenzy</a
                             >
                             <a class="page-links" href="./quiz.html"
-                            >Country Quiz</a
+                                >Country Quiz</a
                             >
                             <a class="page-links" href="./leaderboard.html"
-                            >Leaderboard</a
+                                >Leaderboard</a
                             >
                         </div>
                     </div>
@@ -125,66 +125,85 @@
                 </div>
             </div>
             <!-- MAIN PAGE -->
-            <div class="score-time-container">
-                <div class="time-count" id="countdown-timer">
+            <div class="game-section">
+                <section class="title">
+                    <div class="title-timer">
+                        <h1>Country Quiz</h1>
+                        <div class="score-time-container">
+                            <div class="time-count" id="countdown-timer"></div>
+                        </div>
                     </div>
-            </div>
-            <section class="title">
-                Country Quiz
-                <div class="countrycard" id="countrycard">
-                    <button class= "button-colours" id="button2">START</button>
-                    
-                </div>
-            </section>
-            <form action="" id="form">
-                <div class="qbox" id="question1"></div>
-                <div class="abox">
-                    <select name="q1" id="q1" class="atext" required>
-                        <option value="">Answer:</option>
-                        <option value="North">North</option>
-                        <option value="South">South</option>
-                    </select>
-                </div>
-                <div class="qbox" id="question2"></div>
-                <div class="abox">
-                    <select name="q2" id="q2" class="atext" required>
-                        <option value="">Answer:</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Antarctica">Antarctica</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Oceania">Australasia/Oceania</option>
-                        <option value="Europe">Europe</option>
-                        <option value="North America">North America</option>
-                        <option value="South America">South America</option>
-                    </select>
-                </div>
-                <div class="qbox" id="question3"></div>
-                <div class="abox">
-                    <select name="q3" id="q3" class="atext" required>
-                        <option value="">Answer:</option>
-                    </select>
-                </div>
-                <div class="qbox" id="question4"></div>
-                <div class="abox">
-                    <select name="q4" id="q4" class="atext" required>
-                        <option value="">Answer:</option>
-                    </select>
-                </div>
-                <div class="qbox" id="question5"></div>
-                <div class="abox">
-                    <select name="q5" id="q5" class="atext" required>
-                        <option value="">Answer:</option>
-                        <option value="0">0 - 50 Million</option>
-                        <option value="1">50 - 100 Million</option>
-                        <option value="2">100 - 200 Million</option>
-                        <option value="3">200 - 500 Million</option>
-                        <option value="4">Over 500 Million</option>
-                    </select>
-                </div>
+                    <div class="countrycard" id="countrycard">
+                        <button class="button-colours" id="button2">
+                            START
+                        </button>
+                    </div>
+                </section>
+                <form action="" id="form">
+                    <div class="qbox" id="question1"></div>
+                    <div class="abox">
+                        <select name="q1" id="q1" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="North">North</option>
+                            <option value="South">South</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question2"></div>
+                    <div class="abox">
+                        <select name="q2" id="q2" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Oceania">Australasia/Oceania</option>
+                            <option value="Europe">Europe</option>
+                            <option value="North America">North America</option>
+                            <option value="South America">South America</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question3"></div>
+                    <div class="abox">
+                        <select name="q3" id="q3" class="atext" required>
+                            <option value="">Answer:</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question4"></div>
+                    <div class="abox">
+                        <select name="q4" id="q4" class="atext" required>
+                            <option value="">Answer:</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question5"></div>
+                    <div class="abox">
+                        <select name="q5" id="q5" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="0">0 - 50 Million</option>
+                            <option value="1">50 - 100 Million</option>
+                            <option value="2">100 - 200 Million</option>
+                            <option value="3">200 - 500 Million</option>
+                            <option value="4">Over 500 Million</option>
+                        </select>
+                    </div>
 
-                <input type="submit" value="Submit" class="enter" >
-            </form>
-            <div id="scorecard"></div>
+                    <input
+                        type="submit"
+                        value="Submit"
+                        class="enter small-button button-colours button-border"
+                    />
+                </form>
+
+                <div class="try-again-container">
+                    <div class="scorecard" id="scorecard">
+                        <p id="16" class="qtext">Try again!</p>
+                    </div>
+                    <button
+                        class="button-colours small-button button-border"
+                        id="button"
+                    >
+                        Play again
+                    </button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
