@@ -1,17 +1,48 @@
+let arr = [...Array(12).keys()];//ordered array of numbers from 0 to 11
+let lst = [];
 let i = 0;
+
+console.log(lst);
+
 url_base;
 let answers = {};
 let result;
 let runningCount = [];
 
+function set () {
+    lst = [];
+    for (let i = 0; i < 12; i++){
+        let rand = Math.floor(Math.random() * arr.length) // random number dependent on length of arr
+        lst.push(arr[rand]);//append random number to list;
+        arr.splice(arr.indexOf(arr[rand]), 1);//remove number so it can't be picked again
+    }
+    arr = [...Array(12).keys()] //reset array
+}
+
+function reset () {
+    set();
+    for (let j = 1; j < 17; j++) {
+        document.getElementById(`${j}`).remove();
+    }
+    document.getElementById("form").reset();
+    document.getElementById("")
+    startCountdownTimer();
+}
+
+
+
+
+
+
 //generate country and questions
 async function start() {
+    document.getElementById("scorecard").setAttribute("class", "");
     //request the countries from the api
     const res = await fetch(url_base + "countries");
     //get data from request
     const countries = await res.json();
     //specify the country from the quiz
-    let country = countries[i];
+    let country = countries[lst[i]];
     console.log(country["population"]);
     answers["hemisphere"] = country["hemisphere"];
     answers["continent"] = country["continent"];
@@ -82,7 +113,7 @@ async function start() {
 
     //populate answer boxes:
     //get random data incl correct ans from api
-    const res2 = await fetch(url_base + `country-facts/${i}`);
+    const res2 = await fetch(url_base + `country-facts/${lst[i]}`);
     const potanswers = await res2.json();
 
     //question 3:
@@ -169,35 +200,14 @@ document.querySelector("form").addEventListener("submit", (e) => {
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
-
-    addScore(sum);
-
+    
     // document.getElementById("button").remove();
-    // document.getElementById("scorecard").setAttribute("class", "");
     for (let j = 1; j < 16; j++) {
         document.getElementById(`${j}`).remove();
     }
     i++;
-    if (i > 11) {
-        i = 0;
-    }
     document.getElementById("form").reset();
     start();
-
-    //display card showing user score
-    // const card = document.getElementById("scorecard");
-    // card.setAttribute("class", "scorecard");
-    // const score = document.createElement("p");
-    // score.setAttribute("id", "15");
-    // score.setAttribute("class", "qtext");
-    // score.textContent = `You scored ${sum}/5`;
-    // card.appendChild(score);
-    // const button = document.createElement("button");
-    // button.setAttribute("type", "button");
-    // button.setAttribute("class", "button");
-    // button.setAttribute("id", "button");
-    // button.textContent = "Play Again";
-    // card.appendChild(button);
 });
 
 async function addScore(score) {
@@ -231,7 +241,6 @@ async function addScoreToLeaderboard(score) {
     };
     console.log(options);
     const res = await fetch(url_base + "leaderboards/countryquiz", options);
-    const res = await fetch(url_base + "leaderboards/countryquiz", options);
     console.log(res);
     const data = await res.json();
 
@@ -252,7 +261,6 @@ async function addScoreToProfile(score) {
         },
     };
     const res = await fetch(url_base + "user/addscore", options);
-    const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
     if (data.rankUp) {
     }
@@ -260,23 +268,26 @@ async function addScoreToProfile(score) {
 }
 
 let main = document.getElementById("body");
-const button2 = document.createElement("button");
-button2.setAttribute("type", "button");
-button2.setAttribute("class", "button2");
-button2.setAttribute("id", "button2");
-button2.textContent = "Start";
-main.appendChild(button2);
+const button2 = document.getElementById("button2");
+// button2.setAttribute("type", "button");
+// button2.setAttribute("class", "button2");
+// button2.setAttribute("id", "button2");
+//button2.style.display = "block"
+//button2.textContent = "Start";
+// countrycard.appendChild(button2);
 
 closePopupButton.addEventListener("click", closePopup);
 
 document.getElementById("button2").addEventListener("click", () => {
     document.getElementById("button2").remove();
+    set()
     start();
     startCountdownTimer();
 });
 
 function startCountdownTimer() {
     // perform the game start
+    document.getElementById("countdown-timer").textContent = 60;
     intervalId = setInterval(function () {
         const countdownTimer = document.getElementById("countdown-timer");
         let secondsLeft = countdownTimer.textContent;
@@ -284,7 +295,38 @@ function startCountdownTimer() {
         if (secondsLeft == 1) {
             clearInterval(intervalId);
             // stop the game, add up points etc
-            // gameFinished();
+            gameOver();
         }
     }, 1000);
 }
+
+
+const gameOver = () => {
+    //display card showing user score
+    const total = runningCount.reduce((x, y) => x + y, 0);
+    addScore(total);
+
+    const card = document.getElementById("scorecard");
+    card.setAttribute("class", "scorecard");
+    const score = document.createElement("p");
+    score.setAttribute("id", "16");
+    score.setAttribute("class", "qtext");
+    if (runningCount.length) {score.textContent = `You scored ${total}/${runningCount.length * 5}`;}
+    else {score.textContent = `Try again!`;}
+    card.appendChild(score);
+    const button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.setAttribute("class", "button");
+    button.setAttribute("id", "button");
+    button.textContent = "Play Again";
+    card.appendChild(button);
+    
+    document.getElementById("button").addEventListener("click", () => {
+        document.getElementById("button").remove();
+        reset();
+        i = 0;
+        start();
+    })
+    runningCount = [];
+}
+
