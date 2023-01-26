@@ -1,1 +1,1 @@
-const url_base = "https://geo-genius.onrender.com/";
+const url_base = "https://geo-genius-server.onrender.com";
