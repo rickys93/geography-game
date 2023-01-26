@@ -71,6 +71,7 @@ async function start() {
     picture.classList.add("countryFlag");
     picture.setAttribute("id", "15");
     picture.src = country["flag"];
+    picture.alt = `The flag of ${country["country"]}`
     countrycard.appendChild(picture);
 
     //display questions
