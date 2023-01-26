@@ -40,6 +40,7 @@ async function start() {
 
     const picture = document.createElement("img");
     picture.classList.add("countryFlag");
+    picture.setAttribute("id", "15");
     picture.src = country["flag"];
     countrycard.appendChild(picture);
 
@@ -140,23 +141,12 @@ async function start() {
     q4a4.textContent = `${languages[3]}`;
     q4.appendChild(q4a4);
 
-    document.getElementById("scorecard").addEventListener("click", (e) => {
-        document.getElementById("button").remove();
-        document.getElementById("scorecard").setAttribute("class", "");
-        for (let j = 1; j < 16; j++) {
-            document.getElementById(`${j}`).remove();
-        }
-        i++;
-        if (i > 11) {
-            i = 0;
-        }
-        document.getElementById("form").reset();
-        start();
-    });
+    
+    
 }
 
 
-    
+
 // submit button
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault(); //stop refresh
@@ -180,27 +170,39 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
     //array of 5 numbers, corresponding to the order of the 5 questions, 1 for a correct answer and 0 for incorrect
     console.log(result);
-
+    
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
-
+    
     addScore(sum);
 
+    // document.getElementById("button").remove();
+    // document.getElementById("scorecard").setAttribute("class", "");
+    for (let j = 1; j < 16; j++) {
+        document.getElementById(`${j}`).remove();
+    }
+    i++;
+    if (i > 11) {
+        i = 0;
+    }
+    document.getElementById("form").reset();
+    start();
+    
     //display card showing user score
-    const card = document.getElementById("scorecard");
-    card.setAttribute("class", "scorecard");
-    const score = document.createElement("p");
-    score.setAttribute("id", "15");
-    score.setAttribute("class", "qtext");
-    score.textContent = `You scored ${sum}/5`;
-    card.appendChild(score);
-    const button = document.createElement("button");
-    button.setAttribute("type", "button");
-    button.setAttribute("class", "button");
-    button.setAttribute("id", "button");
-    button.textContent = "Play Again";
-    card.appendChild(button);
+    // const card = document.getElementById("scorecard");
+    // card.setAttribute("class", "scorecard");
+    // const score = document.createElement("p");
+    // score.setAttribute("id", "15");
+    // score.setAttribute("class", "qtext");
+    // score.textContent = `You scored ${sum}/5`;
+    // card.appendChild(score);
+    // const button = document.createElement("button");
+    // button.setAttribute("type", "button");
+    // button.setAttribute("class", "button");
+    // button.setAttribute("id", "button");
+    // button.textContent = "Play Again";
+    // card.appendChild(button);
 });
 
 async function addScore(score) {
@@ -233,7 +235,7 @@ async function addScoreToLeaderboard(score) {
         },
     };
     console.log(options);
-    const res = await fetch(api_base + "leaderboards/countryquiz", options);
+    const res = await fetch(url_base + "leaderboards/countryquiz", options);
     console.log(res);
     const data = await res.json();
 
@@ -253,7 +255,7 @@ async function addScoreToProfile(score) {
             "Content-Type": "application/json",
         },
     };
-    const res = await fetch(api_base + "user/addscore", options);
+    const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
     if (data.rankUp) {
     }
