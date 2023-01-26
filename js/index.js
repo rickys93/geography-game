@@ -79,12 +79,13 @@ function displayLogOutButton() {
     usernameBox.style.visibility = "hidden";
 }
 
-function displaySignupLoginButton() {
+function displaySignupLoginButtons() {
     signupLoginDiv.style.display = "flex";
     logoutDiv.style.display = "none";
     usernameBox.style.visibility = "visible";
 }
 
+// new user sign up function
 async function signup(e) {
     e.preventDefault();
 
@@ -181,7 +182,7 @@ async function logout(e) {
 
     // display user profile
     displayUserProfile();
-    displaySignupLoginButton();
+    displaySignupLoginButtons();
     alert("Successfully signed out!");
     usernameBox.style.visibility = "visible";
 }
@@ -192,7 +193,7 @@ async function displayCorrectButton() {
     if (userProfile.username) {
         displayLogOutButton();
     } else {
-        displaySignupLoginButton();
+        displaySignupLoginButtons();
     }
 }
 
