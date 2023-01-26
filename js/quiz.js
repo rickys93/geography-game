@@ -1,7 +1,7 @@
 let i = 0;
 let answers={};
 let result;
-
+let runningCount = [];
 
 //generate country and questions
 async function start() {
@@ -151,9 +151,7 @@ async function start() {
     })
 }
 
-// function feedback() {
-    
-// }
+
     
 // submit button
 document.querySelector("form").addEventListener("submit", (e) => {
@@ -182,6 +180,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
+    runningCount.push(sum);
 
     addScore(sum);
 
@@ -258,8 +257,32 @@ async function addScoreToProfile(score) {
     displayUserProfile();
 }
 
-const rem = () => {
 
+let main = document.getElementById("body");
+const button2 = document.createElement("button");
+button2.setAttribute("type", "button");
+button2.setAttribute("class", "button2");
+button2.setAttribute("id", "button2");
+button2.textContent = "Start";
+main.appendChild(button2);
+
+
+document.getElementById("button2").addEventListener("click", () => {
+    document.getElementById("button2").remove();
+    start();
+    startCountdownTimer();
+})
+
+function startCountdownTimer() {
+    // perform the game start
+    intervalId = setInterval(function () {
+        const countdownTimer = document.getElementById("countdown-timer");
+        let secondsLeft = countdownTimer.textContent;
+        countdownTimer.textContent -= 1;
+        if (secondsLeft == 1) {
+            clearInterval(intervalId);
+            // stop the game, add up points etc
+            // gameFinished();
+        }
+    }, 1000);
 }
-
-start();
