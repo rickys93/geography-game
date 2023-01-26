@@ -18,12 +18,24 @@ Once the app is running, you can navigate to the different pages using the navig
 Please note that for the best experience, the app should be run in a modern web browser that supports HTML, CSS, and JavaScript.
 
 ### Flag Frenzy Instructions
+![Flag frenzy screenshot](https://github.com/rickys93/geography-game/blob/staging/images/screenshots/flagfrenzy2.png)
 1. To start the game, press the "Click to Play" button on the Flag Frenzy page.
 2. Once the game starts, a countdown timer will begin from 60 seconds.
-1. A flag will be displayed on the screen, and you must type in the name of the country that the flag represents. You can type in the answer and hit "Enter" on your keyboard or press the "GUESS" button to submit your answer.
-1. If your answer is correct, it will say "CORRECT" and you will earn points. If your answer is incorrect, the correct answer will be displayed and the game will move on to the next flag.
-2. You can get a hint for each flag by clicking on the "HINT" button. This will give you a letter or a clue that might help you guess the country.
-3. The goal of the game is to earn as many points as possible within 60 seconds.
+3. A flag will be displayed on the screen, and you must type in the name of the country that the flag represents. You can type in the answer and hit "Enter" on your keyboard or press the "GUESS" button to submit your answer.
+4. If your answer is correct, it will say "CORRECT" and you will earn points. If your answer is incorrect, the correct answer will be displayed and the game will move on to the next flag.
+5. You can get a hint for each flag by clicking on the "HINT" button. This will give you a letter or a clue that might help you guess the country.
+6. The goal of the game is to earn as many points as possible within 60 seconds.
+
+### Country Quiz Instructions
+![Country quiz screenshot](https://github.com/rickys93/geography-game/blob/staging/images/screenshots/countryquiz.png)
+1. Press the "Start" button when you're ready to play.
+2. A timer will start counting down from 60 seconds. You will be given 5 questions about a series of countries.
+3. Answer each question, and once you've answered all 5, press the "Submit" button to move on to the next country.
+4. The game will end when the timer reaches 0, and your final score will be displayed.
+5. Enjoy the game and learn more about different countries and their facts
+
+### Leaderboard
+![Leaderboard screenshot](https://github.com/rickys93/geography-game/blob/staging/images/screenshots/leaderboard.png)
 
 ## Technologies
 - HTML
