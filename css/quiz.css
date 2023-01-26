@@ -49,10 +49,13 @@
     font-size: 40px;
     color: black;
     margin-left: 10px;
+    padding-top: 20px;
 }
 
 .countryFlag {
     height: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
 }
 
 .qbox {
