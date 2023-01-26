@@ -93,6 +93,9 @@ button {
     font-size: 40px;
     font-weight: 600;
 }
+#gameOver {
+    color:#e869cc;
+}
 
 .leaderboard-icon {
     display: flex;
