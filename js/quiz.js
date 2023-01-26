@@ -67,6 +67,7 @@ async function start() {
     picture.classList.add("countryFlag");
     picture.setAttribute("id", "15");
     picture.src = country["flag"];
+    picture.alt = `The flag of ${country["country"]}`;
     countrycard.appendChild(picture);
 
     //display questions
@@ -195,7 +196,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
 
-    // document.getElementById("button").remove();
     for (let j = 1; j < 16; j++) {
         document.getElementById(`${j}`).remove();
     }
@@ -264,12 +264,6 @@ async function addScoreToProfile(score) {
 
 let main = document.getElementById("body");
 const button2 = document.getElementById("button2");
-// button2.setAttribute("type", "button");
-// button2.setAttribute("class", "button2");
-// button2.setAttribute("id", "button2");
-//button2.style.display = "block"
-//button2.textContent = "Start";
-// countrycard.appendChild(button2);
 
 closePopupButton.addEventListener("click", closePopup);
 
