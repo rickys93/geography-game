@@ -175,12 +175,14 @@ function resetGame(e) {
     startResetButton.textContent = "Click to play";
     skipButton.style.display = "none";
     flagHint.style.display = "none";
+    correctHeading.textContent = "";
 }
 
 // This is called once the countdown timer hits 0
 function gameFinished() {
     flagImage.style.display = "none";
     gameOver.style.display = "flex";
+    correctHeading.textContent = `The correct answer was ${correctAnswer.textContent}`;
 
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
