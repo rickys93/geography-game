@@ -1,9 +1,11 @@
 const closePopupButton = document.getElementById("close-popup-button");
 const popup = document.getElementById("pop-up");
 
+console.log(url_base);
 async function displayUserProfile() {
     // get current userProfile data
     let userProfile = await getUserProfile();
+
     updateNameHTML(userProfile);
 }
 
