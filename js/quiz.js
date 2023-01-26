@@ -41,6 +41,11 @@ async function start() {
     q.textContent = `Country: ${country["country"]}`;
     countrycard.appendChild(q);
 
+    const picture = document.createElement("img");
+    picture.classList.add("countryFlag");
+    picture.src = country["flag"];
+    countrycard.appendChild(picture);
+
     //display questions
     const question1 = document.getElementById("question1");
     const text1 = document.createElement("p");
