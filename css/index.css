@@ -24,11 +24,10 @@
 .welcome-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .col1 {
-    padding: 0 15px 15px 0;
     height: 300px;
     flex: 1 1 300px;
 }
@@ -134,7 +133,7 @@
 }
 
 .fun-fact-text {
-    font-size: 20px;
+    font-size: 16px;
     padding: 15px 20px 0px 20px;
     font-weight: 600;
 }
