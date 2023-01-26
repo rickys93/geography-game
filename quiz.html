@@ -13,6 +13,7 @@
             href="//fonts.googleapis.com/css?family=Jura"
         />
         <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <script defer src="./js/apiBase.js"></script>
         <script defer src="./js/displayUserProfile.js"></script>
         <script defer src="./js/quiz.js"></script>
     </head>
@@ -96,6 +97,33 @@
                     </div>
                 </div>
             </nav>
+            <div class="full-screen flex-container-center" id="pop-up">
+                <div class="flex-container-center pop-up-center">
+                    <div class="flex-container-center pop-up-message">
+                        <img
+                            class="fireworks-image"
+                            src="./images/firework.png"
+                            alt="Fireworks"
+                        />
+                        <h2>Congratulations on leveling up!</h2>
+                        <h2>
+                            You are now a
+                            <span class="rank-name"
+                                ><span class="rank-name" id="rank-name"
+                                    >Geo Genius</span
+                                >!</span
+                            >
+                        </h2>
+                        <h2>Keep on playing, keep on learning!</h2>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="close-popup-button"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
             <!-- MAIN PAGE -->
             <div class="score-time-container">
                 <div class="time-count" id="countdown-timer">
@@ -104,7 +132,9 @@
             </div>
             <section class="title">
                 Country Quiz
-                <div class="countrycard" id="countrycard"></div>
+                <div class="countrycard" id="countrycard">
+                    <!-- <img src="" alt=""> -->
+                </div>
             </section>
             <form action="" id="form">
                 <div class="qbox" id="question1"></div>

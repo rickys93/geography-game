@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>GeoGenius - Level up and become a Geo Genius</title>
         <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <script defer src="./js/apiBase.js"></script>
         <script defer src="./js/displayUserProfile.js"></script>
         <script defer src="./js/flags.js"></script>
     </head>
@@ -97,21 +98,56 @@
                     </div>
                 </div>
             </nav>
+            <div class="full-screen flex-container-center" id="pop-up">
+                <div class="flex-container-center pop-up-center">
+                    <div class="flex-container-center pop-up-message">
+                        <img
+                            class="fireworks-image"
+                            src="./images/firework.png"
+                            alt="Fireworks"
+                        />
+                        <h2>Congratulations on leveling up!</h2>
+                        <h2>
+                            You are now a
+                            <span class="rank-name"
+                                ><span class="rank-name" id="rank-name"
+                                    >Geo Genius</span
+                                >!</span
+                            >
+                        </h2>
+                        <h2>Keep on playing, keep on learning!</h2>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="close-popup-button"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
             <section id="main-section">
                 <div class="main-section">
                     <div class="flag-frenzy-section">
-                        <h1 id="whatFlag">Flag Frenzy</h1>
+                        <div class="title-row">
+                            <a
+                                class="back-button button-colours button-border"
+                                href="./index.html"
+                                >&#8592;</a
+                            >
+                            <h1 id="whatFlag">Flag Frenzy</h1>
+                            <div></div>
+                        </div>
                         <div class="score-time-container">
                             <div class="score-count">
                                 Score: <span id="flag-frenzy-score">0</span>
                             </div>
                             <div class="time-count" id="countdown-timer">
-                                60
+                                10
                             </div>
                         </div>
                         <div class="flag-image-container">
                             <div class="game-finished">
-                                <div id = "gameOver">GAME OVER!</div>
+                                <div id="gameOver">GAME OVER!</div>
                                 <div>
                                     SCORE: <span id="final-score">0</span>
                                 </div>
@@ -143,7 +179,7 @@
                                 class="button-colours small-button button-border"
                                 id="skip"
                             >
-                                Skip
+                                SKIP
                             </button>
                         </div>
                         <br />
@@ -164,10 +200,9 @@
                             />
                         </form>
                         <br />
-                      
+
                         <h4 id="correct"></h4>
                         <p id="hint">Click to reveal a hint</p>
-                       
                     </div>
                 </div>
             </section>

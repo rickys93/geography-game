@@ -17,6 +17,7 @@
             href="//fonts.googleapis.com/css?family=Jura"
         />
         <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <script defer src="./js/apiBase.js"></script>
         <script defer src="./js/leaderboard.js"></script>
         <script defer src="./js/displayUserProfile.js"></script>
     </head>
@@ -103,13 +104,21 @@
             <section class="main-section-container">
                 <div class="main-section">
                     <div class="leaderboard">
-                        <h1>Leaderboard</h1>
+                        <div class="title-row">
+                            <a
+                                class="back-button button-colours button-border"
+                                href="./index.html"
+                                >&#8592;
+                            </a>
+                            <h1>Leaderboard</h1>
+                            <div></div>
+                        </div>
                         <h2>Flag Frenzy</h2>
                         <table class="leaderboard-table" id="flagfrenzy">
                             <thead>
                                 <tr>
                                     <th>Rank</th>
-                                    <th>username</th>
+                                    <th>Username</th>
                                     <th>Score</th>
                                 </tr>
                             </thead>
@@ -171,7 +180,7 @@
                             <thead>
                                 <tr>
                                     <th>Rank</th>
-                                    <th>username</th>
+                                    <th>Username</th>
                                     <th>Score</th>
                                 </tr>
                             </thead>
@@ -228,11 +237,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a
-                            class="back-button small-button button-colours button-border"
-                            href="./index.html"
-                            >&#8592; Back</a
-                        >
                     </div>
                 </div>
             </section>

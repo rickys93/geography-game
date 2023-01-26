@@ -1,5 +1,3 @@
-let url_base = "https://geo-genius-server.onrender.com/";
-
 const submitNameButton = document.getElementById("submit-name-form");
 const usernameBox = document.getElementById("userNameInput");
 const signUpButton = document.getElementById("sign-up-button");
@@ -7,48 +5,6 @@ const logInButton = document.getElementById("log-in-button");
 const logOutButton = document.getElementById("log-out-button");
 const signupLoginDiv = document.querySelector(".submit-button-div");
 const logoutDiv = document.querySelector(".log-out-button-div");
-
-// event listener function that gets added to submit button
-// async function submitName(e) {
-//     e.preventDefault();
-
-//     // if no name entered into box, return
-//     let name = e.target.userNameInput.value;
-//     if (!name) {
-//         return;
-//     }
-
-//     // get current userProfile data
-//     let userProfile = await getUserProfile();
-
-//     let user = {};
-//     user.username = name;
-//     user.points = 0;
-
-//     if (!updateNewUser(user)) {
-//         // error updating the same for same reason
-//         console.log("Name not changed");
-//         return;
-//     }
-
-//     updateNameHTML(user);
-//     document.getElementById("userNameInput").value = "";
-
-//     if (userProfile.username) {
-//         // there was already name in database
-//         alert("Name successfully changed!");
-//         return;
-//     }
-//     // name added to database
-//     alert("Name successfully added!");
-//     displayUserProfile();
-// }
-
-// async function displayUserProfile() {
-//     // get current userProfile data
-//     let userProfile = await getUserProfile();
-//     updateNameHTML(userProfile);
-// }
 
 // call the PUT user endpoint to edit the userProfile data
 async function updateNewUser(user) {
@@ -243,8 +199,6 @@ async function displayCorrectButton() {
 displayCorrectButton();
 newRandomFact();
 
-console.log(signUpButton);
-console.log(logInButton);
 signUpButton.addEventListener("click", signup);
 logInButton.addEventListener("click", login);
 logOutButton.addEventListener("click", logout);

@@ -15,14 +15,11 @@ body {
 }
 
 .main-section {
-    width: 100%;
-    max-width: 600px;
+    max-width: 800px;
 }
 .flag-frenzy-section {
     display: flex;
     flex-direction: column;
-
-    padding: 100px 70px;
 
     background-color: rgba(159, 182, 226, 0.8);
     border-radius: 2rem;
@@ -31,8 +28,9 @@ body {
     flex-direction: column;
     align-items: center;
 
-    height: 550px;
-    margin: 50px 0px 50px -20px;
+    height: 800px;
+    padding: 40px;
+    margin: 40px;
 }
 /* #main-section {
     width: 40%;
@@ -55,15 +53,6 @@ section > h1,
 section > button {
     flex-shrink: 0;
     height: 3rem;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-top: -70px;
-    margin-bottom: 25px;
-    margin-right: -30px;
-    margin-left: -30px;
-    color: white;
 }
 
 button {
@@ -95,7 +84,7 @@ button {
 }
 #gameOver {
     font-size: 50px;
-    color:#e869cc;
+    color: #e869cc;
 }
 
 .leaderboard-icon {
