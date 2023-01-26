@@ -1,5 +1,3 @@
-let url_base = "https://geo-genius-server.onrender.com/";
-
 //this works
 const startResetButton = document.getElementById("button");
 // const submitGuess = document.getElementById("form");
@@ -31,30 +29,29 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
-      this.sound.play();
-    }
-    this.stop = function(){
-      this.sound.pause();
-    }
-  }
+    this.play = function () {
+        this.sound.play();
+    };
+    this.stop = function () {
+        this.sound.pause();
+    };
+}
 
 async function getFlags() {
     const response = await fetch(url_base + "flag-facts");
     const flags = await response.json();
-    return flags
+    return flags;
 }
 
-console.log(getFlags())
+console.log(getFlags());
 
- function displayFlag() {
-
+function displayFlag() {
     const randomId = Math.floor(Math.random() * flags.length);
     //fact with the random ID
     const randomFlag = flags[randomId];
 
     flags.splice(flags.indexOf(flags[randomId]), 1);
-    console.log(flags)
+    console.log(flags);
 
     const flagImage = document.querySelector("#flag-image");
 
@@ -119,9 +116,8 @@ flagHint.addEventListener("click", showHint);
 function skipFlag(e) {
     e.preventDefault();
 
-    displayFlag()
+    displayFlag();
 }
-
 
 let intervalId;
 
@@ -140,12 +136,11 @@ function startCountdownTimer() {
 }
 
 async function gameStart(e) {
-    // if (!checkNameAdded()) {
-    //     alert("Please make sure name entered on home page.");
-    //     return;
-    // }
-    flags = await getFlags()
-    //console.log(flags)
+    if (!checkNameAdded()) {
+        alert("Please make sure name entered on home page.");
+        return;
+    }
+    flags = await getFlags();
 
     if (!displayFlag()) {
         alert("Error while loading flags. Please try again later.");
@@ -153,7 +148,7 @@ async function gameStart(e) {
     }
 
     wrongSound = new sound("./sounds/wrong.mp3");
-    rightSound = new sound("./sounds/right.mp3")
+    rightSound = new sound("./sounds/right.mp3");
     guessButton.addEventListener("submit", guessAnswer);
     startResetButton.removeEventListener("click", gameStart);
     startResetButton.addEventListener("click", resetGame);
@@ -227,12 +222,10 @@ async function addScoreToLeaderboard(score) {
             "Content-Type": "application/json",
         },
     };
-    console.log(options);
-    const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
-    console.log(res);
-    const data = await res.json();
 
-    console.log(data);
+    const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
+
+    const data = await res.json();
 }
 
 async function addScoreToProfile(score) {
@@ -250,7 +243,9 @@ async function addScoreToProfile(score) {
     };
     const res = await fetch(url_base + "user/addscore", options);
     const data = await res.json();
+    console.log(data);
     if (data.rankUp) {
+        openPopup(data.userProfile.rank.name);
     }
     displayUserProfile();
 }

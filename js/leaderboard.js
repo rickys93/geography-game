@@ -1,5 +1,3 @@
-let url_base = "https://geo-genius-server.onrender.com/";
-
 async function addLeaderboardData(leaderboard) {
     let leaderboardData = await getLeaderboardData(leaderboard);
     const tableRows = document.querySelectorAll(

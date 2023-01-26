@@ -1,6 +1,5 @@
 :root {
     --pink: #e869cc;
-    --pink-dark: #e453c4;
     --light-blue: #9fb6e2;
 }
 
@@ -79,9 +78,25 @@
     .logo {
         font-size: 60px;
     }
+}
+
+.back-button {
+    font-size: 2vw;
+}
+
+@media only screen and (min-width: 1000px) {
     .back-button {
         font-size: 20px;
     }
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.top-row div {
+    width: 120px;
 }
 
 .pink-text {
@@ -263,6 +278,13 @@
     border: solid var(--pink) 5px;
 }
 
+.flex-container-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-section-container {
     width: 100%;
     display: flex;
@@ -272,4 +294,45 @@
 .main-section {
     width: 100%;
     max-width: 1000px;
+}
+
+#pop-up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.pop-up-center {
+    width: 600px;
+    height: 600px;
+    background-color: var(--light-blue);
+    border-radius: 30px;
+}
+
+.pop-up-message {
+    padding: 100px;
+    text-align: center;
+}
+
+.fireworks-image {
+    width: 50%;
+    margin: 20px;
+}
+
+.pop-up-message h2 {
+    margin-bottom: 20px;
+}
+
+.rank-name {
+    color: var(--pink);
+}
+
+#close-popup-button {
+    margin-top: 30px;
 }

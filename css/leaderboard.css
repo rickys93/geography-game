@@ -1,6 +1,5 @@
 :root {
     --pink: #e869cc;
-    --pink-dark: #e453c4;
     --light-blue: #9fb6e2;
 }
 
@@ -19,25 +18,6 @@
     flex-direction: column;
     align-items: center;
     padding: 40px;
-}
-
-.back-button {
-    font-size: 2.5vw;
-}
-
-@media only screen and (min-width: 1000px) {
-    .back-button {
-        font-size: 25px;
-    }
-}
-
-.top-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.top-row div {
-    width: 120px;
 }
 
 .leaderboard h1 {
