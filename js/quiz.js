@@ -258,7 +258,6 @@ async function addScoreToLeaderboard(score) {
     };
     console.log(options);
     const res = await fetch(url_base + "leaderboards/countryquiz", options);
-    const res = await fetch(url_base + "leaderboards/countryquiz", options);
     console.log(res);
     const data = await res.json();
 
