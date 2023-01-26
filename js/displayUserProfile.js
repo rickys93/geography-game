@@ -1,7 +1,6 @@
 const closePopupButton = document.getElementById("close-popup-button");
 const popup = document.getElementById("pop-up");
 
-console.log(url_base);
 async function displayUserProfile() {
     // get current userProfile data
     let userProfile = await getUserProfile();
@@ -19,6 +18,7 @@ async function getUserProfile() {
     }
 
     let userProfile = await res.json();
+    console.log(userProfile);
 
     return userProfile;
 }
@@ -42,6 +42,7 @@ async function updateNameHTML(user) {
         }
     }
     const userStarsElements = document.getElementsByClassName("user-stars");
+    console.log(user);
     for (e of userStarsElements) {
         e.textContent = user.rank.stars;
     }
