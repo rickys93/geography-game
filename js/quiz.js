@@ -16,7 +16,7 @@ function set () {
         lst.push(arr[rand]);//append random number to list;
         arr.splice(arr.indexOf(arr[rand]), 1);//remove number so it can't be picked again
     }
-    arr = [...Array(12).keys()] //reset array
+    arr = [...Array(12).keys()]; //reset array
 }
 
 function reset () {
@@ -25,7 +25,7 @@ function reset () {
         document.getElementById(`${j}`).remove();
     }
     document.getElementById("form").reset();
-    document.getElementById("")
+    document.getElementById("");
     startCountdownTimer();
 }
 
@@ -200,7 +200,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
     
-    // document.getElementById("button").remove();
     for (let j = 1; j < 16; j++) {
         document.getElementById(`${j}`).remove();
     }
@@ -268,12 +267,6 @@ async function addScoreToProfile(score) {
 
 let main = document.getElementById("body");
 const button2 = document.getElementById("button2");
-// button2.setAttribute("type", "button");
-// button2.setAttribute("class", "button2");
-// button2.setAttribute("id", "button2");
-//button2.style.display = "block"
-//button2.textContent = "Start";
-// countrycard.appendChild(button2);
 
 closePopupButton.addEventListener("click", closePopup);
 
