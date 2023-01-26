@@ -12,6 +12,7 @@ async function displayUserProfile() {
 async function getUserProfile() {
     let res = await fetch(url_base + "user");
 
+    console.log(res);
     if (res.status !== 200) {
         console.log("Could not get user profile data from user endpoint");
         return;

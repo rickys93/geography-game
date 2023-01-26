@@ -175,8 +175,6 @@ async function start() {
     q4.appendChild(q4a4);
 }
 
-
-
 // submit button
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault(); //stop refresh
@@ -200,7 +198,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
     //array of 5 numbers, corresponding to the order of the 5 questions, 1 for a correct answer and 0 for incorrect
     console.log(result);
-    
+
     //sum score
     const sum = result.reduce((x, y) => x + y, 0);
     runningCount.push(sum);
@@ -212,7 +210,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
     document.getElementById("form").reset();
     start();
-    
+
     //display card showing user score
     // const card = document.getElementById("scorecard");
     // card.setAttribute("class", "scorecard");
@@ -260,6 +258,7 @@ async function addScoreToLeaderboard(score) {
     };
     console.log(options);
     const res = await fetch(url_base + "leaderboards/countryquiz", options);
+    const res = await fetch(url_base + "leaderboards/countryquiz", options);
     console.log(res);
     const data = await res.json();
 
@@ -286,7 +285,6 @@ async function addScoreToProfile(score) {
     displayUserProfile();
 }
 
-
 let main = document.getElementById("body");
 const button2 = document.createElement("button");
 button2.setAttribute("type", "button");
@@ -295,13 +293,14 @@ button2.setAttribute("id", "button2");
 button2.textContent = "Start";
 main.appendChild(button2);
 
+closePopupButton.addEventListener("click", closePopup);
 
 document.getElementById("button2").addEventListener("click", () => {
     document.getElementById("button2").remove();
     set()
     start();
     startCountdownTimer();
-})
+});
 
 function startCountdownTimer() {
     // perform the game start

@@ -116,6 +116,7 @@ flagHint.addEventListener("click", showHint);
 
 function skipFlag(e) {
     e.preventDefault();
+    correctHeading.textContent = `The correct answer was ${correctAnswer.textContent}`;
 
     displayFlag();
 }
@@ -147,7 +148,7 @@ async function gameStart(e) {
         alert("Error while loading flags. Please try again later.");
         return;
     }
-
+    skipButton.style.display = "inline";
     wrongSound = new sound("./sounds/wrong.mp3");
     rightSound = new sound("./sounds/right.mp3");
     guessButton.addEventListener("submit", guessAnswer);
@@ -160,7 +161,7 @@ async function gameStart(e) {
 function resetGame(e) {
     clearInterval(intervalId);
     score.textContent = 0;
-    timer.textContent = 10;
+    timer.textContent = 60;
     flagImage.src = "images/question.png";
     flagImage.style.display = "flex";
     flagImage.height = "100%";
@@ -179,6 +180,8 @@ function gameFinished() {
     flagImage.style.display = "none";
     gameOver.style.display = "flex";
     correctHeading.textContent = `The correct answer was ${correctAnswer.textContent}`;
+    skipButton.style.display = "none";
+    startResetButton.textContent = "PLAY AGAIN";
 
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
@@ -226,7 +229,7 @@ async function addScoreToLeaderboard(score) {
         },
     };
 
-    const res = await fetch(url_base + "leaderboards/flagfrenzy", options);
+    const res = await fetch(url_base + "leaderboards/flagfrenzy/add", options);
 
     const data = await res.json();
 }
@@ -253,7 +256,7 @@ async function addScoreToProfile(score) {
     displayUserProfile();
 }
 
+closePopupButton.addEventListener("click", closePopup);
 startResetButton.addEventListener("click", gameStart);
 guessButton.addEventListener("submit", emptyFunction);
 skipButton.addEventListener("click", skipFlag);
-closePopupButton.addEventListener("click", closePopup);
