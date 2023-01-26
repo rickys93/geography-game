@@ -5,7 +5,7 @@ let result;
 //generate country and questions
 async function start() {
     //request the countries from the api
-    const res = await fetch("http://localhost:3000/countries");
+    const res = await fetch(url_base + "countries");
     //get data from request
     const countries = await res.json();
     //specify the country from the quiz
@@ -79,7 +79,7 @@ async function start() {
 
     //populate answer boxes:
     //get random data incl correct ans from api
-    const res2 = await fetch(`http://localhost:3000/country-facts/${i}`);
+    const res2 = await fetch(url_base + `country-facts/${i}`);
     const potanswers = await res2.json();
 
     //question 3:
