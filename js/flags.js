@@ -256,3 +256,4 @@ async function addScoreToProfile(score) {
 startResetButton.addEventListener("click", gameStart);
 guessButton.addEventListener("submit", emptyFunction);
 skipButton.addEventListener("click", skipFlag);
+closePopupButton.addEventListener("click", closePopup);

@@ -80,23 +80,26 @@
     }
 }
 
-.back-button {
-    font-size: 2vw;
-}
-
-@media only screen and (min-width: 1000px) {
-    .back-button {
-        font-size: 20px;
-    }
-}
-
-.top-row {
+.title-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 40px;
 }
-.top-row div {
-    width: 120px;
+.title-row div {
+    width: 100px;
+}
+
+.title-row h1 {
+    color: white;
+    font-size: 3rem;
+}
+
+.back-button {
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .pink-text {
@@ -309,7 +312,7 @@
 }
 
 .pop-up-center {
-    width: 600px;
+    width: 500px;
     height: 600px;
     background-color: var(--light-blue);
     border-radius: 30px;

@@ -61,5 +61,4 @@ function openPopup(rankName) {
     popup.style.visibility = "visible";
 }
 
-closePopupButton.addEventListener("click", closePopup);
 displayUserProfile();
