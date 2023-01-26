@@ -17,10 +17,10 @@ async function start() {
     answers["capital"] = country["capital"];
     answers["languages"] = country["languages"];
     //sort populaiton of country into sections based on the possible answers and assign them the value used in the html for comparison
-    if (country["populaiton"] < 50000000){
+    if (country["population"] < 50000000){
         answers["population"] = 0;
     }
-    else if (country["populaiton"] < 100000000){
+    else if (country["population"] < 100000000){
         answers["population"] = 1;
     }
     else if (country["population"] < 200000000){
