@@ -32,8 +32,6 @@ function reset () {
 
 
 
-
-
 //generate country and questions
 async function start() {
     document.getElementById("scorecard").setAttribute("class", "");

@@ -54,6 +54,7 @@ During the development process, the team did not have time to implement a proper
 Overall, the GeoGenius project was a success, and it was well received by the schools that used it. The team learned a lot about the development process and Agile methodologies, and they are looking forward to applying their knowledge to future projects.
 
 ## Screenshots/Images
+![Alt text](https://github.com/rickys93/geography-game/blob/staging/images/screenshots/flagfrenzy.png)
 
 ## Wins & Challenges
 
