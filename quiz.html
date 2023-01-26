@@ -17,28 +17,28 @@
         <script defer src="./js/displayUserProfile.js"></script>
         <script defer src="./js/quiz.js"></script>
     </head>
-    <body id="body">
+    <body id="body" id="body">
         <div class="background-image">
             <nav class="navigation-bar">
                 <div class="nav-left">
                     <a class="logo" href="./index.html"
-                        ><span class="pink-text">G</span>eo<span
-                            class="pink-text"
-                            >G</span
-                        >enius<span class="pink-text">.</span></a
+                    ><span class="pink-text">G</span>eo<span
+                    class="pink-text"
+                    >G</span
+                    >enius<span class="pink-text">.</span></a
                     >
                 </div>
                 <div class="nav-left">
                     <a
-                        class="page-links button-colours"
-                        href="./flag-frenzy.html"
-                        >Flag Frenzy</a
+                    class="page-links button-colours"
+                    href="./flag-frenzy.html"
+                    >Flag Frenzy</a
                     >
                     <a class="page-links button-colours" href="./quiz.html"
-                        >Country Quiz</a
+                    >Country Quiz</a
                     >
                     <a class="leaderboard-link" href="./leaderboard.html"
-                        ><img class="" src="../images/trophy.png" alt=""
+                    ><img class="" src="../images/trophy.png" alt=""
                     /></a>
                 </div>
                 <div class="nav-right">
@@ -59,25 +59,25 @@
             <nav class="navigation-bar-small">
                 <div class="nav-left">
                     <a class="logo-small" href="./index.html"
-                        ><span class="pink-text">GG.</span></a
+                    ><span class="pink-text">GG.</span></a
                     >
                     <div class="dropdown">
                         <button class="dropbtn">
                             <img
-                                class="dropdown-img"
-                                src="../images/3-lines.png"
-                                alt=""
+                            class="dropdown-img"
+                            src="../images/3-lines.png"
+                            alt=""
                             />
                         </button>
                         <div class="dropdown-content">
                             <a class="page-links" href="./flag-frenzy.html"
-                                >Flag Frenzy</a
+                            >Flag Frenzy</a
                             >
                             <a class="page-links" href="./quiz.html"
-                                >Country Quiz</a
+                            >Country Quiz</a
                             >
                             <a class="page-links" href="./leaderboard.html"
-                                >Leaderboard</a
+                            >Leaderboard</a
                             >
                         </div>
                     </div>
@@ -125,6 +125,11 @@
                 </div>
             </div>
             <!-- MAIN PAGE -->
+            <div class="score-time-container">
+                <div class="time-count" id="countdown-timer">
+                    10
+                </div>
+            </div>
             <section class="title">
                 Country Quiz
                 <div class="countrycard" id="countrycard">
@@ -177,7 +182,7 @@
                     </select>
                 </div>
 
-                <input type="submit" value="Submit" class="enter" />
+                <input type="submit" value="Submit" class="enter" >
             </form>
             <div id="scorecard"></div>
         </div>

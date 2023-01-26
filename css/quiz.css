@@ -30,15 +30,18 @@
 }
 
 .countrycard {
+    display: flex;
+    flex-direction: row;
     height: 102px;
     background: #d9d9d9;
     width: 563px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
-    margin-top: 2%;
+    text-align: center;
+    margin-top: 20px;
     border: 1px solid black;
+    
 }
 
 .countrytext {
@@ -46,6 +49,10 @@
     font-size: 40px;
     color: black;
     margin-left: 10px;
+}
+
+.countryFlag {
+    height: 50px;
 }
 
 .qbox {
@@ -121,4 +128,46 @@
     right: 30%;
     top: 99.8%;
     font-size: 28px;
+}
+
+.button2 {
+    position: absolute;
+    height: 81px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    left: 65%;
+    top: 100px;
+    font-size: 28px;
+}
+
+
+.score-time-container {
+    height: 81px;
+    width: 150px;
+    position: absolute;
+    left: 32%;
+    top: 7%;
+    display: flex;
+    font-size: 20px;
+}
+
+.score-time-container div {
+    padding: 25px 0px;
+    margin: 0px 10px;
+    border-radius: 5px;
+}
+
+.score-count {
+    background-color: white;
+    width: 100px;
+    text-align: center;
+}
+
+.time-count {
+    background-color: white;
+    width: 50px;
+    text-align: center;
 }
