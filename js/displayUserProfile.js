@@ -106,6 +106,7 @@ async function addScoreToLeaderboard(score, leaderboard) {
 }
 
 async function addScoreToProfile(score) {
+    // convert to number
     score = +score;
     let entry = {
         score,
@@ -119,7 +120,13 @@ async function addScoreToProfile(score) {
         },
     };
     const res = await fetch(url_base + "user/addscore", options);
-    const data = await res.json();
+
+    if (res.status !== 200) {
+        alert("Error uploading score to database.");
+        return;
+    }
+
+    const data = res.json();
     if (data.rankUp) {
         openPopup(data.userProfile.rank.name);
     }
