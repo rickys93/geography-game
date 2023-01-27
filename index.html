@@ -4,32 +4,100 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>GeoGenius</title>
-        <link rel="stylesheet" href="./style.css" />
+        <title>GeoGenius - Level up and become a Geo Genius</title>
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/main-style.css" />
+        <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="//fonts.googleapis.com/css?family=Jura"
+        />
+        <script defer src="./js/apiBase.js"></script>
+        <script defer src="./js/index.js"></script>
+        <script defer src="./js/displayUserProfile.js"></script>
     </head>
     <body>
         <div class="background-image">
             <nav class="navigation-bar">
                 <div class="nav-left">
-                    <a class="logo" href=""
+                    <a class="logo" href="./index.html"
                         ><span class="pink-text">G</span>eo<span
                             class="pink-text"
                             >G</span
                         >enius<span class="pink-text">.</span></a
                     >
-                    <a class="page-links button-colours" href="">Flag Frenzy</a>
-                    <a class="page-links button-colours" href=""
+                </div>
+                <div class="nav-left">
+                    <a
+                        class="page-links button-colours"
+                        href="./flag-frenzy.html"
+                        >Flag Frenzy</a
+                    >
+                    <a class="page-links button-colours" href="./quiz.html"
                         >Country Quiz</a
                     >
+                    <a class="leaderboard-link" href="./leaderboard.html"
+                        ><img class="" src="../images/trophy.png" alt=""
+                    /></a>
                 </div>
                 <div class="nav-right">
                     <div class="mini-profile">
-                        <!-- <div id="user-name">Name</div>
-                        <div id="user-points">Points</div> -->
-                        <div class="label">Name:</div>
-                        <div>Paul</div>
-                        <div class="label">Points:</div>
-                        <div>100</div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navigation-bar-small">
+                <div class="nav-left">
+                    <a class="logo-small" href="./index.html"
+                        ><span class="pink-text">GG.</span></a
+                    >
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <img
+                                class="dropdown-img"
+                                src="../images/3-lines.png"
+                                alt=""
+                            />
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="page-links" href="./flag-frenzy.html"
+                                >Flag Frenzy</a
+                            >
+                            <a class="page-links" href="./quiz.html"
+                                >Country Quiz</a
+                            >
+                            <a class="page-links" href="./leaderboard.html"
+                                >Leaderboard</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="mini-profile">
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
                     </div>
                 </div>
             </nav>
@@ -38,33 +106,66 @@
                     <div class="welcome-section">
                         <div class="col col1">
                             <div class="welcome-box box">
-                                <div class="fun-fact-title">
-                                    <h2>Welcome to Geo Genius!</h2>
-                                </div>
-                                <div class="grid-2-container">
-                                    <div class="grid-2">
-                                        <div class="name-entry-container">
-                                            <div>Submit name to begin...</div>
-                                            <form>
-                                                <input
-                                                    class="name-entry"
-                                                    type="text"
-                                                    name=""
-                                                    id=""
-                                                />
-                                            </form>
-                                        </div>
-                                        <div class="submit-button-div">
-                                            <input
-                                                class="button-colours small-button button-border"
-                                                type="submit"
-                                                value="Submit"
-                                            />
-                                        </div>
-                                        <div></div>
+                                <h2>Welcome to Geo Genius!</h2>
+                                <div>Are you ready to become a Geo Genius?</div>
+                                <form class="grid-2" id="submit-name-form">
+                                    <div class="name-entry-container">
+                                        <input
+                                            class="name-entry"
+                                            type="text"
+                                            name=""
+                                            id="userNameInput"
+                                        />
                                     </div>
-                                </div>
-                                <div class="grid-3"></div>
+                                    <div class="submit-button-div">
+                                        <input
+                                            class="button-colours small-button button-border"
+                                            type="submit"
+                                            name="submit_button"
+                                            value="Sign Up"
+                                            id="sign-up-button"
+                                        />
+                                        <input
+                                            class="button-colours small-button button-border"
+                                            type="submit"
+                                            name="submit_button"
+                                            value="Log In"
+                                            id="log-in-button"
+                                        />
+                                    </div>
+                                    <div class="log-out-button-div">
+                                        <button
+                                            class="button-colours small-button button-border"
+                                            type="submit"
+                                            id="log-out-button"
+                                        >
+                                            Log Out
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- <div class="grid-3">
+                                    <div class="user-profile">
+                                        <div class="name-points-container">
+                                            <div class="profile-container">
+                                                <div class="mini-profile-label">
+                                                    Name:
+                                                </div>
+                                                <div class="user-name"></div>
+                                            </div>
+                                            <div class="user-rank">
+                                                
+                                            </div>
+                                            <div class="profile-container">
+                                                <div class="mini-profile-label">
+                                                    Points:
+                                                </div>
+                                                <div class="user-points"></div>
+                                            </div>
+                                            <div class="user-stars"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col col2">
@@ -72,13 +173,13 @@
                                 <div class="fun-fact-title">
                                     <h2>Fun Fact</h2>
                                 </div>
-                                <div class="fun-fact-text">
-                                    The highest capital city in the world is La
-                                    Paz, Bolivia, which sits at an elevation of
-                                    over 11,000 feet above sea level.
-                                </div>
+                                <div
+                                    class="fun-fact-text"
+                                    id="fun-fact-text"
+                                ></div>
                                 <div class="small-button-container">
                                     <button
+                                        id="randomise-button"
                                         class="small-button button-colours button-border"
                                     >
                                         Randomise →
@@ -110,7 +211,7 @@
                                 <div class="play-button-container">
                                     <a
                                         class="play-button button-colours"
-                                        href=""
+                                        href="./flag-frenzy.html"
                                         >PLAY →</a
                                     >
                                 </div>
@@ -138,7 +239,7 @@
                                 <div class="play-button-container">
                                     <a
                                         class="play-button button-colours"
-                                        href=""
+                                        href="./quiz.html"
                                         >PLAY →</a
                                     >
                                 </div>

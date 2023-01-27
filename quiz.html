@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GeoGenius - Level up and become a Geo Genius</title>
+        <link rel="stylesheet" href="./css/main-style.css" />
+        <link rel="stylesheet" href="./css/quiz.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="//fonts.googleapis.com/css?family=Jura"
+        />
+        <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <script defer src="./js/apiBase.js"></script>
+        <script defer src="./js/displayUserProfile.js"></script>
+        <script defer src="./js/quiz.js"></script>
+    </head>
+    <body id="body" id="body">
+        <div class="background-image">
+            <nav class="navigation-bar">
+                <div class="nav-left">
+                    <a class="logo" href="./index.html"
+                        ><span class="pink-text">G</span>eo<span
+                            class="pink-text"
+                            >G</span
+                        >enius<span class="pink-text">.</span></a
+                    >
+                </div>
+                <div class="nav-left">
+                    <a
+                        class="page-links button-colours"
+                        href="./flag-frenzy.html"
+                        >Flag Frenzy</a
+                    >
+                    <a class="page-links button-colours" href="./quiz.html"
+                        >Country Quiz</a
+                    >
+                    <a class="leaderboard-link" href="./leaderboard.html"
+                        ><img class="" src="../images/trophy.png" alt=""
+                    /></a>
+                </div>
+                <div class="nav-right">
+                    <div class="mini-profile">
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navigation-bar-small">
+                <div class="nav-left">
+                    <a class="logo-small" href="./index.html"
+                        ><span class="pink-text">GG.</span></a
+                    >
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <img
+                                class="dropdown-img"
+                                src="../images/3-lines.png"
+                                alt=""
+                            />
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="page-links" href="./flag-frenzy.html"
+                                >Flag Frenzy</a
+                            >
+                            <a class="page-links" href="./quiz.html"
+                                >Country Quiz</a
+                            >
+                            <a class="page-links" href="./leaderboard.html"
+                                >Leaderboard</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="mini-profile">
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
+                    </div>
+                </div>
+            </nav>
+            <div class="full-screen flex-container-center" id="pop-up">
+                <div class="flex-container-center pop-up-center">
+                    <div class="flex-container-center pop-up-message">
+                        <img
+                            class="fireworks-image"
+                            src="./images/firework.png"
+                            alt="Fireworks"
+                        />
+                        <h2>Congratulations on leveling up!</h2>
+                        <h2>
+                            You are now a
+                            <span class="rank-name"
+                                ><span class="rank-name" id="rank-name"
+                                    >Geo Genius</span
+                                >!</span
+                            >
+                        </h2>
+                        <h2>Keep on playing, keep on learning!</h2>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="close-popup-button"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- MAIN PAGE -->
+            <div class="game-section">
+                <section class="title">
+                    <div class="title-timer">
+                        <a
+                            class="back-button button-colours button-border"
+                            href="./index.html"
+                            >&#8592;</a
+                        >
+                        <h1>Country Quiz</h1>
+                        <div class="score-time-container">
+                            <div class="time-count" id="countdown-timer"></div>
+                        </div>
+                    </div>
+                    <div class="countrycard" id="countrycard">
+                        <button
+                            class="button-colours button-border"
+                            id="button2"
+                        >
+                            START
+                        </button>
+                    </div>
+                    <div id="try-again-container">
+                        <div class="scorecard" id="scorecard">
+                            <p id="16" class="qtext">Try again!</p>
+                        </div>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="button"
+                        >
+                            Play again
+                        </button>
+                    </div>
+                </section>
+                <form action="" id="form">
+                    <div class="qbox" id="question1"></div>
+                    <div class="abox">
+                        <select name="q1" id="q1" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="North">North</option>
+                            <option value="South">South</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question2"></div>
+                    <div class="abox">
+                        <select name="q2" id="q2" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Oceania">Australasia/Oceania</option>
+                            <option value="Europe">Europe</option>
+                            <option value="North America">North America</option>
+                            <option value="South America">South America</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question3"></div>
+                    <div class="abox">
+                        <select name="q3" id="q3" class="atext" required>
+                            <option value="">Answer:</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question4"></div>
+                    <div class="abox">
+                        <select name="q4" id="q4" class="atext" required>
+                            <option value="">Answer:</option>
+                        </select>
+                    </div>
+                    <div class="qbox" id="question5"></div>
+                    <div class="abox">
+                        <select name="q5" id="q5" class="atext" required>
+                            <option value="">Answer:</option>
+                            <option value="0">0 - 50 Million</option>
+                            <option value="1">50 - 100 Million</option>
+                            <option value="2">100 - 200 Million</option>
+                            <option value="3">200 - 500 Million</option>
+                            <option value="4">Over 500 Million</option>
+                        </select>
+                    </div>
+
+                    <input
+                        type="submit"
+                        value="Submit"
+                        class="enter small-button button-colours button-border"
+                    />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+:root {
+    --pink: #e869cc;
+    --light-blue: #9fb6e2;
+}
+
+* {
+    color: white;
+}
+
+.leaderboard {
+    width: 100%;
+    height: 850px;
+    background-color: rgba(159, 182, 226, 0.8);
+    border-radius: 30px;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.leaderboard h1 {
+    font-size: 45px;
+}
+.leaderboard h2 {
+    margin-top: 20px;
+}
+
+.main-section {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+}
+
+table.leaderboard-table {
+    width: 90%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: var(--pink);
+    border-style: solid;
+    color: #000000;
+}
+
+table.leaderboard-table td,
+table.leaderboard-table th {
+    border-width: 2px;
+    border-color: var(--pink);
+    /* border-style: solid; */
+    padding: 3px;
+    text-align: center;
+    color: #000000;
+    height: 20px;
+}
+
+table.leaderboard-table thead {
+    background-color: var(--pink);
+}

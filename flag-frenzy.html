@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="//fonts.googleapis.com/css?family=Jura"
+        />
+        <link rel="stylesheet" href="./css/main-style.css" />
+        <link rel="stylesheet" href="./css/flag-frenzy.css" />
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GeoGenius - Level up and become a Geo Genius</title>
+        <link rel="icon" type="image/x-icon" href="/images/geography.png" />
+        <script defer src="./js/apiBase.js"></script>
+        <script defer src="./js/displayUserProfile.js"></script>
+        <script defer src="./js/flags.js"></script>
+    </head>
+    <body>
+        <div class="background-image">
+            <nav class="navigation-bar">
+                <div class="nav-left">
+                    <a class="logo" href="./index.html"
+                        ><span class="pink-text">G</span>eo<span
+                            class="pink-text"
+                            >G</span
+                        >enius<span class="pink-text">.</span></a
+                    >
+                </div>
+                <div class="nav-left">
+                    <a
+                        class="page-links button-colours"
+                        href="./flag-frenzy.html"
+                        >Flag Frenzy</a
+                    >
+                    <a class="page-links button-colours" href="./quiz.html"
+                        >Country Quiz</a
+                    >
+                    <a class="leaderboard-link" href="./leaderboard.html"
+                        ><img class="" src="../images/trophy.png" alt=""
+                    /></a>
+                </div>
+                <div class="nav-right">
+                    <div class="mini-profile">
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navigation-bar-small">
+                <div class="nav-left">
+                    <a class="logo-small" href="./index.html"
+                        ><span class="pink-text">GG.</span></a
+                    >
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <img
+                                class="dropdown-img"
+                                src="../images/3-lines.png"
+                                alt=""
+                            />
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="page-links" href="./flag-frenzy.html"
+                                >Flag Frenzy</a
+                            >
+                            <a class="page-links" href="./quiz.html"
+                                >Country Quiz</a
+                            >
+                            <a class="page-links" href="./leaderboard.html"
+                                >Leaderboard</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="mini-profile">
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Name:</div>
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-rank"></div>
+                        <div class="profile-container">
+                            <div class="mini-profile-label">Points:</div>
+                            <div class="user-points"></div>
+                        </div>
+                        <div class="user-stars"></div>
+                    </div>
+                </div>
+            </nav>
+            <div class="full-screen flex-container-center" id="pop-up">
+                <div class="flex-container-center pop-up-center">
+                    <div class="flex-container-center pop-up-message">
+                        <img
+                            class="fireworks-image"
+                            src="./images/firework.png"
+                            alt="Fireworks"
+                        />
+                        <h2>Congratulations on leveling up!</h2>
+                        <h2>
+                            You are now a
+                            <span class="rank-name"
+                                ><span class="rank-name" id="rank-name"
+                                    >Geo Genius</span
+                                >!</span
+                            >
+                        </h2>
+                        <h2>Keep on playing, keep on learning!</h2>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="close-popup-button"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <section id="main-section">
+                <div class="main-section">
+                    <div class="flag-frenzy-section">
+                        <div class="title-row">
+                            <a
+                                class="back-button button-colours button-border"
+                                href="./index.html"
+                                >&#8592;</a
+                            >
+                            <h1 id="whatFlag">Flag Frenzy</h1>
+                            <div></div>
+                        </div>
+                        <div class="score-time-container">
+                            <div class="score-count">
+                                Score: <span id="flag-frenzy-score">0</span>
+                            </div>
+                            <div class="time-count" id="countdown-timer">
+                                60
+                            </div>
+                        </div>
+                        <div class="flag-image-container">
+                            <div class="game-finished">
+                                <div id="gameOver">GAME OVER!</div>
+                                <div>
+                                    SCORE: <span id="final-score">0</span>
+                                </div>
+                                <a
+                                    class="leaderboard-link leaderboard-icon"
+                                    href="./leaderboard.html"
+                                    ><img
+                                        class=""
+                                        src="../images/trophy.png"
+                                        alt=""
+                                    />
+                                    →
+                                </a>
+                            </div>
+                            <img
+                                src="./images/question.png"
+                                alt="A random flag"
+                                id="flag-image"
+                            />
+                        </div>
+                        <div>
+                            <button
+                                class="button-colours small-button button-border"
+                                id="button"
+                            >
+                                Click to play
+                            </button>
+                            <button
+                                class="button-colours small-button button-border"
+                                id="skip"
+                            >
+                                SKIP
+                            </button>
+                        </div>
+                        <br />
+                        <form id="form">
+                            <input
+                                id="flagGuess"
+                                type="text"
+                                name="text"
+                                placeholder="Type your answer here..."
+                            />
+                            <input type="hidden" id="correctAnswer" />
+                            <input type="hidden" id="funFact" />
+                            <input
+                                class="button-colours small-button button-border"
+                                id="guess-button"
+                                type="submit"
+                                value="GUESS"
+                            />
+                        </form>
+                        <br />
+
+                        <h4 id="correct"></h4>
+                        <p id="hint">Click to reveal a hint</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

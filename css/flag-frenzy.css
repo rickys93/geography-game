@@ -1,0 +1,155 @@
+:root {
+    --pink: #e869cc;
+    --light-blue: #9fb6e2;
+}
+
+body {
+    /* font-family: 'Jura'; */
+    padding: 0rem;
+}
+
+#main-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-section {
+    max-width: 800px;
+}
+.flag-frenzy-section {
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(159, 182, 226, 0.8);
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 800px;
+    padding: 40px;
+    margin: 40px;
+}
+/* #main-section {
+    width: 40%;
+    min-height: 80%;
+    transform: translate(-50%, -45%);
+} */
+
+/* #inner-section {
+    background-color: white;
+    border-radius: 20px;
+} */
+
+/* .container {
+    flex-grow: 1;
+    padding: 1rem;
+
+  } */
+
+section > h1,
+section > button {
+    flex-shrink: 0;
+    height: 3rem;
+}
+
+button {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 15px;
+    line-height: 20px;
+}
+
+.flag-image-container {
+    height: 200px;
+    margin: 20px 0px;
+}
+
+#flag-image {
+    height: 200px;
+}
+
+.game-finished {
+    height: 200px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+#gameOver {
+    font-size: 50px;
+    color: #e869cc;
+}
+
+.leaderboard-icon {
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+#flagGuess,
+#guess-button {
+    padding: 10px;
+    margin-bottom: 7px;
+    /* font-family: "Jura"; */
+}
+
+#flagGuess {
+    border-radius: 10px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#guess-button {
+    cursor: pointer;
+}
+
+p {
+    /* padding: 0px 10px -30px 10px; */
+    background-color: var(--pink);
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+h4 {
+    color: white;
+    padding-top: -40px;
+    padding-bottom: 20px;
+    padding-right: -30px;
+    padding-left: -30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.score-time-container {
+    display: flex;
+    font-size: 20px;
+    padding: 10px 0px;
+}
+
+.score-time-container div {
+    padding: 10px 0px;
+    margin: 0px 10px;
+    border-radius: 5px;
+}
+
+.score-count {
+    background-color: white;
+    width: 100px;
+    text-align: center;
+}
+
+.time-count {
+    background-color: white;
+    width: 50px;
+    text-align: center;
+}
