@@ -128,14 +128,33 @@
             <div class="game-section">
                 <section class="title">
                     <div class="title-timer">
+                        <a
+                            class="back-button button-colours button-border"
+                            href="./index.html"
+                            >&#8592;</a
+                        >
                         <h1>Country Quiz</h1>
                         <div class="score-time-container">
                             <div class="time-count" id="countdown-timer"></div>
                         </div>
                     </div>
                     <div class="countrycard" id="countrycard">
-                        <button class="button-colours" id="button2">
+                        <button
+                            class="button-colours button-border"
+                            id="button2"
+                        >
                             START
+                        </button>
+                    </div>
+                    <div id="try-again-container">
+                        <div class="scorecard" id="scorecard">
+                            <p id="16" class="qtext">Try again!</p>
+                        </div>
+                        <button
+                            class="button-colours small-button button-border"
+                            id="button"
+                        >
+                            Play again
                         </button>
                     </div>
                 </section>
@@ -191,18 +210,6 @@
                         class="enter small-button button-colours button-border"
                     />
                 </form>
-
-                <div class="try-again-container">
-                    <div class="scorecard" id="scorecard">
-                        <p id="16" class="qtext">Try again!</p>
-                    </div>
-                    <button
-                        class="button-colours small-button button-border"
-                        id="button"
-                    >
-                        Play again
-                    </button>
-                </div>
             </div>
         </div>
     </body>

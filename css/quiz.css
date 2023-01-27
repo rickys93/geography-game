@@ -24,13 +24,17 @@
 .game-section {
     display: flex;
     flex-direction: column;
-    height: 1200px;
+    height: 1300px;
 }
 
 .title-timer {
     display: flex;
     height: 100px;
     align-items: center;
+}
+
+.title-timer h1 {
+    margin: 20px 50px;
 }
 
 .title {
@@ -90,6 +94,7 @@
 }
 #button2 {
     padding: 10px 30px 10px 30px;
+    cursor: pointer;
     border-style: none;
     border-radius: 20px;
     font-size: 30px;
@@ -159,6 +164,9 @@
     background-color: var(--pink);
     height: 81px;
     width: 483px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
@@ -173,31 +181,8 @@
     font-size: 28px;
 }
 
-.try-again-container {
+#try-again-container {
     margin-top: 30px;
-    display: flex;
+    display: none;
     justify-content: center;
 }
-
-#button {
-    visibility: hidden;
-}
-#scorecard {
-    visibility: hidden;
-}
-#16 {
-    visibility: hidden;
-}
-
-/* .button2 {
-    position: absolute;
-    height: 81px;
-    width: 150px;
-    border: 1px solid black;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    left: 65%;
-    top: 100px;
-    font-size: 28px;
-} */

@@ -65,4 +65,65 @@ function openPopup(rankName) {
     popup.style.visibility = "visible";
 }
 
+async function addScore(score, leaderboard) {
+    score = +score;
+    if (typeof score !== "number") {
+        console.log(
+            "Issue with addScore function. Score entry not of type number"
+        );
+        return;
+    }
+
+    addScoreToLeaderboard(score, leaderboard);
+    addScoreToProfile(score);
+}
+
+async function addScoreToLeaderboard(score, leaderboard) {
+    let username = document.getElementsByClassName("user-name")[0].textContent;
+
+    let entry = {
+        username,
+        score,
+    };
+
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    console.log(options);
+    const res = await fetch(
+        url_base + "leaderboards/" + leaderboard + "/add",
+        options
+    );
+    console.log(res);
+    const data = await res.json();
+
+    console.log(data);
+}
+
+async function addScoreToProfile(score) {
+    score = +score;
+    let entry = {
+        score,
+    };
+    let options = {
+        method: "POST",
+        body: JSON.stringify(entry),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    };
+    const res = await fetch(url_base + "user/addscore", options);
+    const data = await res.json();
+    if (data.rankUp) {
+        openPopup(data.userProfile.rank.name);
+    }
+    displayUserProfile();
+}
+
 displayUserProfile();

@@ -97,7 +97,9 @@
 
 .back-button {
     font-size: 30px;
-    padding: 20px;
+    height: 45px;
+    width: 50px;
+    text-align: center;
     border-radius: 10px;
     text-decoration: none;
 }

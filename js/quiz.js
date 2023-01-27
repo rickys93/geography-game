@@ -55,6 +55,8 @@ async function start() {
         answers["population"] = 4;
     }
     console.log(answers);
+    document.getElementById("try-again-container").style.display = "none";
+    document.getElementById("countrycard").style.display = "flex";
     //display generated country:
     const countrycard = document.getElementById("countrycard");
     const q = document.createElement("p");
@@ -204,64 +206,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     start();
 });
 
-async function addScore(score) {
-    score = +score;
-    if (typeof score !== "number") {
-        console.log(
-            "Issue with addScore function. Score entry not of type number"
-        );
-        return;
-    }
-
-    addScoreToLeaderboard(score);
-    addScoreToProfile(score);
-}
-
-async function addScoreToLeaderboard(score) {
-    let username = document.getElementsByClassName("user-name")[0].textContent;
-
-    let entry = {
-        username,
-        score,
-    };
-
-    let options = {
-        method: "POST",
-        body: JSON.stringify(entry),
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-    };
-    console.log(options);
-    const res = await fetch(url_base + "leaderboards/countryquiz", options);
-    console.log(res);
-    const data = await res.json();
-
-    console.log(data);
-}
-
-async function addScoreToProfile(score) {
-    score = +score;
-    let entry = {
-        score,
-    };
-    let options = {
-        method: "POST",
-        body: JSON.stringify(entry),
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-    };
-    const res = await fetch(url_base + "user/addscore", options);
-    const data = await res.json();
-    if (data.rankUp) {
-        openPopup(data.userProfile.rank.name);
-    }
-    displayUserProfile();
-}
-
 let main = document.getElementById("body");
 const button2 = document.getElementById("button2");
 
@@ -292,31 +236,19 @@ function startCountdownTimer() {
 const gameOver = () => {
     //display card showing user score
     const total = runningCount.reduce((x, y) => x + y, 0);
-    addScore(total);
+    addScore(total, "countryquiz");
 
-    // const card = document.getElementById("scorecard");
-    // card.setAttribute("class", "scorecard");
     const score = document.getElementById("16");
     const card = document.getElementById("scorecard");
     const button = document.getElementById("button");
-    // const score = document.createElement("p");
-    // score.setAttribute("id", "16");
-    // score.setAttribute("class", "qtext");
+
     if (runningCount.length) {
         score.textContent = `You scored ${total}/${runningCount.length * 5}`;
     } else {
         score.textContent = `Try again!`;
     }
-    // card.appendChild(score);
-    // const button = document.createElement("button");
-    // button.setAttribute("type", "button");
-    // button.setAttribute("class", "button");
-    // button.setAttribute("id", "button");
-    // button.textContent = "Play Again";
-    // card.appendChild(button);
-    card.style.visibility = "visible";
-    score.style.visibility = "visible";
-    button.style.visibility = "visible";
+    document.getElementById("try-again-container").style.display = "flex";
+    document.getElementById("countrycard").style.display = "none";
 
     button.addEventListener("click", () => {
         document.getElementById("button").remove();

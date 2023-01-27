@@ -186,7 +186,7 @@ function gameFinished() {
     guessButton.removeEventListener("submit", guessAnswer);
     guessButton.addEventListener("submit", emptyFunction);
     document.getElementById("final-score").textContent = score.textContent;
-    addScore(score.textContent);
+    addScore(score.textContent, "flagfrenzy");
 }
 
 function endGame() {
@@ -197,63 +197,6 @@ function endGame() {
 
 function emptyFunction(e) {
     e.preventDefault();
-}
-
-async function addScore(score) {
-    score = +score;
-    if (typeof score !== "number") {
-        console.log(
-            "Issue with addScore function. Score entry not of type number"
-        );
-        return;
-    }
-
-    addScoreToLeaderboard(score);
-    addScoreToProfile(score);
-}
-
-async function addScoreToLeaderboard(score) {
-    let username = document.getElementsByClassName("user-name")[0].textContent;
-
-    let entry = {
-        username,
-        score,
-    };
-
-    let options = {
-        method: "POST",
-        body: JSON.stringify(entry),
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-    };
-
-    const res = await fetch(url_base + "leaderboards/flagfrenzy/add", options);
-
-    const data = await res.json();
-}
-
-async function addScoreToProfile(score) {
-    score = +score;
-    let entry = {
-        score,
-    };
-    let options = {
-        method: "POST",
-        body: JSON.stringify(entry),
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-    };
-    const res = await fetch(url_base + "user/addscore", options);
-    const data = await res.json();
-    console.log(data);
-    if (data.rankUp) {
-        openPopup(data.userProfile.rank.name);
-    }
-    displayUserProfile();
 }
 
 closePopupButton.addEventListener("click", closePopup);
