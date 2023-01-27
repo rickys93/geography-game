@@ -25,7 +25,6 @@ function reset() {
         document.getElementById(`${j}`).remove();
     }
     document.getElementById("form").reset();
-    document.getElementById("");
     startCountdownTimer();
 }
 
